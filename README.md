@@ -1,26 +1,24 @@
 # Supplementary material for preprint
 
-## Animations: Trajectory + Neural state
+## Sec 4.1 Animations: Trajectory + neural state for VRNN Agent 3 (Seed: 3307e9)
 
 ### Constant plume (Success)
-![](supp/constantx5b5_merged_common_ep236.gif)
+![](supp/3307e9/constantx5b5_merged_common_ep236.gif)
 
 ### Switch-once plume (Success)
-![](supp/switch45x5b5_merged_common_ep228.gif)
+![](supp/3307e9/switch45x5b5_merged_common_ep228.gif)
 
 ### Switch-many plume (Success)
-![](supp/noisy3x5b5_merged_common_ep154.gif)
+![](supp/3307e9/noisy3x5b5_merged_common_ep154.gif)
 
 
-### Constant plume (Failure)
-![](supp/constantx5b5_merged_common_ep049.gif)
+Other animations, including failure cases and other seeds
+* By seed:
+  * [VRNN 1 (Seed: 2760377)](VRNN1.md) 
+  * [VRNN 2 (Seed: 3199993)](VRNN2.md) 
+  * [VRNN 3 (Seed: 3307e9)](VRNN3.md) 
+  * [VRNN 4 (Seed: 541058)](VRNN4.md) 
+  * [VRNN 5 (Seed: 9781ba)](VRNN5.md) 
 
-### Switch-once plume (Failure)
-![](supp/switch45x5b5_merged_common_ep189.gif)
-
-### Switch-many plume (Failure)
-![](supp/noisy3x5b5_merged_common_ep088.gif)
-
-
-## Animations: Eigenvalue timecourse 
-![](supp/constantx5b5_merged_common_ep102.gif)
+## Section : Eigenvalue timecourse 
+![](supp/3307e9/constantx5b5_merged_common_ep102.gif)
