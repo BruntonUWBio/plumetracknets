@@ -1,18 +1,8 @@
 # Supplementary material for preprint
 
-## Sec 4.1 Animations: Trajectory + neural state for VRNN Agent 3 (Seed: 3307e9)
+## Sec 4.1 Animations: Trajectory + neural state
 
-### Constant plume (Success)
-![](supp/3307e9/constantx5b5_merged_common_ep236.gif)
-
-### Switch-once plume (Success)
-![](supp/3307e9/switch45x5b5_merged_common_ep228.gif)
-
-### Switch-many plume (Success)
-![](supp/3307e9/noisy3x5b5_merged_common_ep154.gif)
-
-
-Other animations, including failure cases and other seeds
+All animations, including failure cases and all 5 VRNN seeds:
 * By seed:
   * [VRNN 1 (Seed: 2760377)](VRNN1.md) 
   * [VRNN 2 (Seed: 3199993)](VRNN2.md) 
@@ -20,5 +10,16 @@ Other animations, including failure cases and other seeds
   * [VRNN 4 (Seed: 541058)](VRNN4.md) 
   * [VRNN 5 (Seed: 9781ba)](VRNN5.md) 
 
-## Section : Eigenvalue timecourse 
+### VRNN Agent 3 (Seed: 3307e9)
+#### Constant plume (Success)
+![](supp/3307e9/constantx5b5_merged_common_ep236.gif)
+
+#### Switch-once plume (Success)
+![](supp/3307e9/switch45x5b5_merged_common_ep228.gif)
+
+#### Switch-many plume (Success)
+![](supp/3307e9/noisy3x5b5_merged_common_ep154.gif)
+
+
+## Section 4.6: Eigenvalue timecourse -- VRNN Agent 3 (Seed: 3307e9)
 ![](supp/3307e9/constantx5b5_merged_common_ep102.gif)
