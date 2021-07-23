@@ -20,3 +20,5 @@ All animations, including failure cases and all 5 VRNN seeds:
 #### Switch-many plume (Success)
 ![](supp/3307e9/noisy3x5b5_merged_common_ep154.gif)
 
+### Sparse plume (Success)
+![](supp/3307e9/constantx5b5_0.4_HOME_merged_common_ep138.gif)
