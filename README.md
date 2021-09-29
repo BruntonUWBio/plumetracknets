@@ -1,6 +1,24 @@
 # Supplementary material for preprint
 
-## Sec 4.1 Animations: Trajectory + neural state
+"Emergent behavior and neural dynamics in artificial agents tracking turbulent plumes"
+Satpreet Harcharan Singh, Floris van Breugel, Rajesh P. N. Rao, Bingni Wen Brunton
+* Preprint URL: https://arxiv.org/abs/2109.12434
+* Tweeprint/Summary: https://twitter.com/tweetsatpreet/status/1442974225032093698
+
+BibTeX:
+```
+@article{singh2021emergent,
+  title={Emergent behavior and neural dynamics in artificial agents tracking turbulent plumes},
+  author={Singh, Satpreet H and van Breugel, Floris and Rao, Rajesh PN and Brunton, Bingni W},
+  journal={arXiv preprint arXiv:2109.12434},
+  year={2021}
+}
+```
+
+## Animations: Trajectory + neural state
+
+![](supp/constantx5b5_merged_common_ep236.gif)
+
 
 All animations, including failure cases and all 5 Vanilla RNN (VRNN) seeds:
 * By seed:
