@@ -7,11 +7,13 @@ Satpreet Harcharan Singh, Floris van Breugel, Rajesh P. N. Rao, Bingni Wen Brunt
 
 BibTeX:
 ```
-@article{singh2021emergent,
-  title={Emergent behavior and neural dynamics in artificial agents tracking turbulent plumes},
-  author={Singh, Satpreet H and van Breugel, Floris and Rao, Rajesh PN and Brunton, Bingni W},
-  journal={arXiv preprint arXiv:2109.12434},
-  year={2021}
+@misc{singh2021emergent,
+      title={Emergent behavior and neural dynamics in artificial agents tracking turbulent plumes}, 
+      author={Satpreet Harcharan Singh and Floris van Breugel and Rajesh P. N. Rao and Bingni Wen Brunton},
+      year={2021},
+      eprint={2109.12434},
+      archivePrefix={arXiv},
+      primaryClass={q-bio.NC}
 }
 ```
 
