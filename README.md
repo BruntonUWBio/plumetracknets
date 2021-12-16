@@ -18,10 +18,6 @@ BibTeX:
 ```
 
 ## Animations: Trajectory + neural state
-
-![](supp/constantx5b5_merged_common_ep236.gif)
-
-
 All animations, including failure cases and all 5 Vanilla RNN (VRNN) seeds:
 * By seed:
   * [VRNN 1 (Seed: 2760377)](VRNN1.md) 
@@ -37,15 +33,5 @@ All animations, including failure cases and all 5 Vanilla RNN (VRNN) seeds:
   * [Sparse plume](sparse.md)
 
 
-### VRNN Agent 3 (Seed: 3307e9)
-#### Constant plume (Success)
-![](supp/3307e9/constantx5b5_merged_common_ep236.gif)
-
-#### Switch-once plume (Success)
-![](supp/3307e9/switch45x5b5_merged_common_ep228.gif)
-
-#### Switch-many plume (Success)
-![](supp/3307e9/noisy3x5b5_merged_common_ep154.gif)
-
-### Sparse plume (Success)
-![](supp/3307e9/constantx5b5_0.4_HOME_merged_common_ep138.gif)
+### Example: VRNN Agent 3 (Seed: 3307e9)
+![](supp/3307e9/constantx5b5_HOME_merged_common_ep088.mp4)
