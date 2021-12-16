@@ -34,4 +34,4 @@ All animations, including failure cases and all 5 Vanilla RNN (VRNN) seeds:
 
 
 ### Example: VRNN Agent 3 (Seed: 3307e9)
-![](supp/3307e9/constantx5b5_HOME_merged_common_ep088.mp4)
+![](supp/3307e9/constantx5b5_HOME_merged_common_ep088.gif)
