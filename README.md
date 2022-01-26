@@ -53,9 +53,10 @@ Data (agent model/network files, model evaluation data) can be downloaded from F
 
 * [Animations](4_plume_videos.md): Some commands for generating animations
 
-Note: All development was done on an Ubuntu Linux v20.04 workstation with Intel Core i9-9940X CPU and a TITAN RTX GPU.
-
-Each seed takes about 16 hours to train and evaluate, with MLP and RNN models using 1 and 4 cores in parallel respectively.
+System requirements: 
+* All development and testing was done on an **Ubuntu Linux v20.04 workstation with Intel Core i9-9940X CPU and a TITAN RTX GPU**.
+* To reproduce manuscript figures, you need to only do the [Prerequisites](0_plume_prereqs.md) and [Figure/Report generation](1_plume_report.md) steps; this can be done on a _relatively_ lightweight Linux/POSIX computer/notebook as long as you have the space to download the data and install all prerequisite software (~10GB together). Expected install/run time after data (~9GB) has been downloaded and extracted is about 2-4 hours.
+* (For full training) Each seed takes about 16 hours to train and evaluate, with MLP and RNN models using 1 and 4 CPU cores in parallel respectively. RNN training was done using with GPU acceleration. Be sure to see additional notes in [Agent Training](3_plume_train.md).
 
 ## Additional media
 [#tweeprint](https://twitter.com/tweetsatpreet/status/1442974225032093698) on this paper: 
