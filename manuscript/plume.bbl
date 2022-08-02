@@ -1,0 +1,967 @@
+\begin{thebibliography}{113}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\href}[2]{#2}
+\providecommand{\path}[1]{#1}
+\providecommand{\DOIprefix}{doi:}
+\providecommand{\ArXivprefix}{arXiv:}
+\providecommand{\URLprefix}{URL: }
+\providecommand{\Pubmedprefix}{pmid:}
+\providecommand{\doi}[1]{\href{http://dx.doi.org/#1}{\path{#1}}}
+\providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
+\providecommand{\bibinfo}[2]{#2}
+\ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Article
+\bibitem[{Ahrens(2019)}]{ahrens2019zebrafish}
+\bibinfo{author}{Ahrens, M.B.}, \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Zebrafish neuroscience: Using artificial neural
+  networks to help understand brains}.
+\newblock \bibinfo{journal}{Current Biology} \bibinfo{volume}{29},
+  \bibinfo{pages}{R1138--R1140}.
+%Type = Inproceedings
+\bibitem[{Anderson et~al.(2019)Anderson, Sullivan, Talley, Brink, Fuller and
+  Daniel}]{anderson2019smellicopter}
+\bibinfo{author}{Anderson, M.J.}, \bibinfo{author}{Sullivan, J.G.},
+  \bibinfo{author}{Talley, J.L.}, \bibinfo{author}{Brink, K.M.},
+  \bibinfo{author}{Fuller, S.B.}, \bibinfo{author}{Daniel, T.L.},
+  \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{The “smellicopter,” a bio-hybrid odor localizing
+  nano air vehicle}, in: \bibinfo{booktitle}{2019 IEEE/RSJ International
+  Conference on Intelligent Robots and Systems (IROS)},
+  \bibinfo{organization}{IEEE}. pp. \bibinfo{pages}{6077--6082}.
+%Type = Article
+\bibitem[{Arulkumaran et~al.(2017)Arulkumaran, Deisenroth, Brundage and
+  Bharath}]{arulkumaran2017deep}
+\bibinfo{author}{Arulkumaran, K.}, \bibinfo{author}{Deisenroth, M.P.},
+  \bibinfo{author}{Brundage, M.}, \bibinfo{author}{Bharath, A.A.},
+  \bibinfo{year}{2017}.
+\newblock \bibinfo{title}{Deep reinforcement learning: A brief survey}.
+\newblock \bibinfo{journal}{IEEE Signal Processing Magazine}
+  \bibinfo{volume}{34}, \bibinfo{pages}{26--38}.
+%Type = Article
+\bibitem[{Ashwood et~al.(2020)Ashwood, Roy, Bak and
+  Pillow}]{ashwood2020inferring}
+\bibinfo{author}{Ashwood, Z.}, \bibinfo{author}{Roy, N.A.},
+  \bibinfo{author}{Bak, J.H.}, \bibinfo{author}{Pillow, J.W.},
+  \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Inferring learning rules from animal
+  decision-making}.
+\newblock \bibinfo{journal}{Advances in Neural Information Processing Systems}
+  \bibinfo{volume}{33}.
+%Type = Article
+\bibitem[{Baker et~al.(2018)Baker, Dickinson, Findley, Gire, Louis, Suver,
+  Verhagen, Nagel and Smear}]{baker2018algorithms}
+\bibinfo{author}{Baker, K.L.}, \bibinfo{author}{Dickinson, M.},
+  \bibinfo{author}{Findley, T.M.}, \bibinfo{author}{Gire, D.H.},
+  \bibinfo{author}{Louis, M.}, \bibinfo{author}{Suver, M.P.},
+  \bibinfo{author}{Verhagen, J.V.}, \bibinfo{author}{Nagel, K.I.},
+  \bibinfo{author}{Smear, M.C.}, \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{Algorithms for olfactory search across species}.
+\newblock \bibinfo{journal}{Journal of Neuroscience} \bibinfo{volume}{38},
+  \bibinfo{pages}{9383--9389}.
+%Type = Inproceedings
+\bibitem[{Baker(1990)}]{baker1990upwind}
+\bibinfo{author}{Baker, T.}, \bibinfo{year}{1990}.
+\newblock \bibinfo{title}{Upwind flight and casting flight: complementary
+  phasic and tonic systems used for location of sex pheromone sources by male
+  moth}, in: \bibinfo{booktitle}{Proc. 10th Int. Symp. Olfaction and Taste,
+  Oslo, 1990}, pp. \bibinfo{pages}{18--25}.
+%Type = Article
+\bibitem[{Banino et~al.(2018)Banino, Barry, Uria, Blundell, Lillicrap,
+  Mirowski, Pritzel, Chadwick, Degris, Modayil et~al.}]{banino2018vector}
+\bibinfo{author}{Banino, A.}, \bibinfo{author}{Barry, C.},
+  \bibinfo{author}{Uria, B.}, \bibinfo{author}{Blundell, C.},
+  \bibinfo{author}{Lillicrap, T.}, \bibinfo{author}{Mirowski, P.},
+  \bibinfo{author}{Pritzel, A.}, \bibinfo{author}{Chadwick, M.J.},
+  \bibinfo{author}{Degris, T.}, \bibinfo{author}{Modayil, J.}, et~al.,
+  \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{Vector-based navigation using grid-like
+  representations in artificial agents}.
+\newblock \bibinfo{journal}{Nature} \bibinfo{volume}{557},
+  \bibinfo{pages}{429--433}.
+%Type = Inproceedings
+\bibitem[{Bengio et~al.(2009)Bengio, Louradour, Collobert and
+  Weston}]{bengio2009curriculum}
+\bibinfo{author}{Bengio, Y.}, \bibinfo{author}{Louradour, J.},
+  \bibinfo{author}{Collobert, R.}, \bibinfo{author}{Weston, J.},
+  \bibinfo{year}{2009}.
+\newblock \bibinfo{title}{Curriculum learning}, in:
+  \bibinfo{booktitle}{Proceedings of the 26th annual international conference
+  on machine learning}, pp. \bibinfo{pages}{41--48}.
+%Type = Article
+\bibitem[{Berman et~al.(2016)Berman, Bialek and
+  Shaevitz}]{berman2016predictability}
+\bibinfo{author}{Berman, G.J.}, \bibinfo{author}{Bialek, W.},
+  \bibinfo{author}{Shaevitz, J.W.}, \bibinfo{year}{2016}.
+\newblock \bibinfo{title}{Predictability and hierarchy in drosophila behavior}.
+\newblock \bibinfo{journal}{Proceedings of the National Academy of Sciences}
+  \bibinfo{volume}{113}, \bibinfo{pages}{11943--11948}.
+%Type = Article
+\bibitem[{Botvinick et~al.(2019)Botvinick, Ritter, Wang, Kurth-Nelson, Blundell
+  and Hassabis}]{botvinick2019reinforcement}
+\bibinfo{author}{Botvinick, M.}, \bibinfo{author}{Ritter, S.},
+  \bibinfo{author}{Wang, J.X.}, \bibinfo{author}{Kurth-Nelson, Z.},
+  \bibinfo{author}{Blundell, C.}, \bibinfo{author}{Hassabis, D.},
+  \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Reinforcement learning, fast and slow}.
+\newblock \bibinfo{journal}{Trends in Cognitive Sciences} .
+%Type = Article
+\bibitem[{Botvinick et~al.(2020)Botvinick, Wang, Dabney, Miller and
+  Kurth-Nelson}]{botvinick2020deep}
+\bibinfo{author}{Botvinick, M.}, \bibinfo{author}{Wang, J.X.},
+  \bibinfo{author}{Dabney, W.}, \bibinfo{author}{Miller, K.J.},
+  \bibinfo{author}{Kurth-Nelson, Z.}, \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Deep reinforcement learning and its neuroscientific
+  implications}.
+\newblock \bibinfo{journal}{Neuron} .
+%Type = Article
+\bibitem[{Breiman(2001)}]{breiman2001random}
+\bibinfo{author}{Breiman, L.}, \bibinfo{year}{2001}.
+\newblock \bibinfo{title}{Random forests}.
+\newblock \bibinfo{journal}{Machine learning} \bibinfo{volume}{45},
+  \bibinfo{pages}{5--32}.
+%Type = Article
+\bibitem[{van Breugel and Dickinson(2014)}]{van2014plume}
+\bibinfo{author}{van Breugel, F.}, \bibinfo{author}{Dickinson, M.H.},
+  \bibinfo{year}{2014}.
+\newblock \bibinfo{title}{Plume-tracking behavior of flying drosophila emerges
+  from a set of distinct sensory-motor reflexes}.
+\newblock \bibinfo{journal}{Current Biology} \bibinfo{volume}{24},
+  \bibinfo{pages}{274--286}.
+%Type = Article
+\bibitem[{van Breugel et~al.(2008)van Breugel, Regan and
+  Lipson}]{van2008insects}
+\bibinfo{author}{van Breugel, F.}, \bibinfo{author}{Regan, W.},
+  \bibinfo{author}{Lipson, H.}, \bibinfo{year}{2008}.
+\newblock \bibinfo{title}{From insects to machines}.
+\newblock \bibinfo{journal}{IEEE Robotics \& Automation Magazine}
+  \bibinfo{volume}{15}, \bibinfo{pages}{68--74}.
+%Type = Article
+\bibitem[{Brockman et~al.(2016)Brockman, Cheung, Pettersson, Schneider,
+  Schulman, Tang and Zaremba}]{brockman2016openai}
+\bibinfo{author}{Brockman, G.}, \bibinfo{author}{Cheung, V.},
+  \bibinfo{author}{Pettersson, L.}, \bibinfo{author}{Schneider, J.},
+  \bibinfo{author}{Schulman, J.}, \bibinfo{author}{Tang, J.},
+  \bibinfo{author}{Zaremba, W.}, \bibinfo{year}{2016}.
+\newblock \bibinfo{title}{Open{AI} gym}.
+\newblock \bibinfo{journal}{arXiv preprint arXiv:1606.01540} .
+%Type = Article
+\bibitem[{Budick and Dickinson(2006)}]{budick2006free}
+\bibinfo{author}{Budick, S.A.}, \bibinfo{author}{Dickinson, M.H.},
+  \bibinfo{year}{2006}.
+\newblock \bibinfo{title}{Free-flight responses of drosophila melanogaster to
+  attractive odors}.
+\newblock \bibinfo{journal}{Journal of Experimental Biology}
+  \bibinfo{volume}{209}, \bibinfo{pages}{3001--3017}.
+%Type = Article
+\bibitem[{Card{\'e} and Willis(2008)}]{carde2008navigational}
+\bibinfo{author}{Card{\'e}, R.T.}, \bibinfo{author}{Willis, M.A.},
+  \bibinfo{year}{2008}.
+\newblock \bibinfo{title}{Navigational strategies used by insects to find
+  distant, wind-borne sources of odor}.
+\newblock \bibinfo{journal}{Journal of Chemical Ecology} \bibinfo{volume}{34},
+  \bibinfo{pages}{854--866}.
+%Type = Article
+\bibitem[{Celani(2020)}]{celani2020olfactory}
+\bibinfo{author}{Celani, A.}, \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Olfactory navigation: Tempo is the key}.
+\newblock \bibinfo{journal}{Elife} \bibinfo{volume}{9},
+  \bibinfo{pages}{e63385}.
+%Type = Article
+\bibitem[{Celani et~al.(2014)Celani, Villermaux and
+  Vergassola}]{celani2014odor}
+\bibinfo{author}{Celani, A.}, \bibinfo{author}{Villermaux, E.},
+  \bibinfo{author}{Vergassola, M.}, \bibinfo{year}{2014}.
+\newblock \bibinfo{title}{Odor landscapes in turbulent environments}.
+\newblock \bibinfo{journal}{Physical Review X} \bibinfo{volume}{4},
+  \bibinfo{pages}{041015}.
+%Type = Article
+\bibitem[{Cichy and Kaiser(2019)}]{cichy2019deep}
+\bibinfo{author}{Cichy, R.M.}, \bibinfo{author}{Kaiser, D.},
+  \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Deep neural networks as scientific models}.
+\newblock \bibinfo{journal}{Trends in Cognitive Sciences} .
+%Type = Article
+\bibitem[{Colabrese et~al.(2017)Colabrese, Gustavsson, Celani and
+  Biferale}]{colabrese2017flow}
+\bibinfo{author}{Colabrese, S.}, \bibinfo{author}{Gustavsson, K.},
+  \bibinfo{author}{Celani, A.}, \bibinfo{author}{Biferale, L.},
+  \bibinfo{year}{2017}.
+\newblock \bibinfo{title}{Flow navigation by smart microswimmers via
+  reinforcement learning}.
+\newblock \bibinfo{journal}{Physical Review Letters} \bibinfo{volume}{118},
+  \bibinfo{pages}{158004}.
+%Type = Misc
+\bibitem[{Costa(2020)}]{costa_gil_2020_3926137}
+\bibinfo{author}{Costa, G.}, \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Flies mating dance}.
+\newblock \URLprefix \url{https://doi.org/10.5281/zenodo.3926137},
+  \DOIprefix\doi{10.5281/zenodo.3926137}.
+%Type = Article
+\bibitem[{Crawshaw(2020)}]{crawshaw2020multi}
+\bibinfo{author}{Crawshaw, M.}, \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Multi-task learning with deep neural networks: A
+  survey}.
+\newblock \bibinfo{journal}{arXiv preprint arXiv:2009.09796} .
+%Type = Article
+\bibitem[{Crosby(2020)}]{crosby2020building}
+\bibinfo{author}{Crosby, M.}, \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Building thinking machines by solving animal
+  cognition tasks}.
+\newblock \bibinfo{journal}{Minds and Machines} , \bibinfo{pages}{1--27}.
+%Type = Article
+\bibitem[{Crosby et~al.(2019)Crosby, Beyret and Halina}]{crosby2019animal}
+\bibinfo{author}{Crosby, M.}, \bibinfo{author}{Beyret, B.},
+  \bibinfo{author}{Halina, M.}, \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{The {A}nimal-{AI} olympics}.
+\newblock \bibinfo{journal}{Nature Machine Intelligence} \bibinfo{volume}{1},
+  \bibinfo{pages}{257--257}.
+%Type = Article
+\bibitem[{Cross et~al.(2021)Cross, Cockburn, Yue and
+  O’Doherty}]{cross2021using}
+\bibinfo{author}{Cross, L.}, \bibinfo{author}{Cockburn, J.},
+  \bibinfo{author}{Yue, Y.}, \bibinfo{author}{O’Doherty, J.P.},
+  \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{Using deep reinforcement learning to reveal how the
+  brain encodes abstract state-space representations in high-dimensional
+  environments}.
+\newblock \bibinfo{journal}{Neuron} \bibinfo{volume}{109},
+  \bibinfo{pages}{724--738}.
+%Type = Inproceedings
+\bibitem[{Cueva et~al.(2019)Cueva, Wang, Chin and Wei}]{cueva2019emergence}
+\bibinfo{author}{Cueva, C.J.}, \bibinfo{author}{Wang, P.Y.},
+  \bibinfo{author}{Chin, M.}, \bibinfo{author}{Wei, X.X.},
+  \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Emergence of functional and structural properties of
+  the head direction system by optimization of recurrent neural networks}, in:
+  \bibinfo{booktitle}{International Conference on Learning Representations}.
+%Type = Inproceedings
+\bibitem[{Cueva and Wei(2018)}]{cueva2018emergence}
+\bibinfo{author}{Cueva, C.J.}, \bibinfo{author}{Wei, X.X.},
+  \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{Emergence of grid-like representations by training
+  recurrent neural networks to perform spatial localization}, in:
+  \bibinfo{booktitle}{International Conference on Learning Representations}.
+%Type = Article
+\bibitem[{Cunningham and Byron(2014)}]{cunningham2014dimensionality}
+\bibinfo{author}{Cunningham, J.P.}, \bibinfo{author}{Byron, M.Y.},
+  \bibinfo{year}{2014}.
+\newblock \bibinfo{title}{Dimensionality reduction for large-scale neural
+  recordings}.
+\newblock \bibinfo{journal}{Nature Neuroscience} \bibinfo{volume}{17},
+  \bibinfo{pages}{1500--1509}.
+%Type = Article
+\bibitem[{Currier and Nagel(2020)}]{currier2020multisensory}
+\bibinfo{author}{Currier, T.A.}, \bibinfo{author}{Nagel, K.I.},
+  \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Multisensory control of navigation in the fruit fly}.
+\newblock \bibinfo{journal}{Current Opinion in Neurobiology}
+  \bibinfo{volume}{64}, \bibinfo{pages}{10--16}.
+%Type = Article
+\bibitem[{Delahunt et~al.(2018)Delahunt, Riffell and
+  Kutz}]{delahunt2018biological}
+\bibinfo{author}{Delahunt, C.B.}, \bibinfo{author}{Riffell, J.A.},
+  \bibinfo{author}{Kutz, J.N.}, \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{Biological mechanisms for learning: a computational
+  model of olfactory learning in the manduca sexta moth, with applications to
+  neural nets}.
+\newblock \bibinfo{journal}{Frontiers in computational neuroscience}
+  \bibinfo{volume}{12}, \bibinfo{pages}{102}.
+%Type = Article
+\bibitem[{Demir et~al.(2020)Demir, Kadakia, Anderson, Clark and
+  Emonet}]{demir2020walking}
+\bibinfo{author}{Demir, M.}, \bibinfo{author}{Kadakia, N.},
+  \bibinfo{author}{Anderson, H.D.}, \bibinfo{author}{Clark, D.A.},
+  \bibinfo{author}{Emonet, T.}, \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Walking drosophila navigate complex plumes using
+  stochastic decisions biased by the timing of odor encounters}.
+\newblock \bibinfo{journal}{bioRxiv} .
+%Type = Article
+\bibitem[{Duncker et~al.(2020)Duncker, Driscoll, Shenoy, Sahani and
+  Sussillo}]{duncker2020organizing}
+\bibinfo{author}{Duncker, L.}, \bibinfo{author}{Driscoll, L.},
+  \bibinfo{author}{Shenoy, K.V.}, \bibinfo{author}{Sahani, M.},
+  \bibinfo{author}{Sussillo, D.}, \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Organizing recurrent network dynamics by
+  task-computation to enable continual learning}.
+\newblock \bibinfo{journal}{Advances in Neural Information Processing Systems}
+  \bibinfo{volume}{33}.
+%Type = Article
+\bibitem[{Ebitz and Hayden(2021)}]{ebitz2021population}
+\bibinfo{author}{Ebitz, R.B.}, \bibinfo{author}{Hayden, B.Y.},
+  \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{The population doctrine in cognitive neuroscience}.
+\newblock \bibinfo{journal}{Neuron} .
+%Type = Article
+\bibitem[{Ehrlich et~al.(2021)Ehrlich, Stone, Brandfonbrener, Atanasov and
+  Murray}]{ehrlich2021psychrnn}
+\bibinfo{author}{Ehrlich, D.B.}, \bibinfo{author}{Stone, J.T.},
+  \bibinfo{author}{Brandfonbrener, D.}, \bibinfo{author}{Atanasov, A.},
+  \bibinfo{author}{Murray, J.D.}, \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{Psychrnn: An accessible and flexible python package
+  for training recurrent neural network models on cognitive tasks}.
+\newblock \bibinfo{journal}{Eneuro} \bibinfo{volume}{8}.
+%Type = Article
+\bibitem[{Farrell et~al.(2002)Farrell, Murlis, Long, Li and
+  Card{\'e}}]{farrell2002filament}
+\bibinfo{author}{Farrell, J.A.}, \bibinfo{author}{Murlis, J.},
+  \bibinfo{author}{Long, X.}, \bibinfo{author}{Li, W.},
+  \bibinfo{author}{Card{\'e}, R.T.}, \bibinfo{year}{2002}.
+\newblock \bibinfo{title}{Filament-based atmospheric dispersion model to
+  achieve short time-scale structure of odor plumes}.
+\newblock \bibinfo{journal}{Environmental Fluid Mechanics} \bibinfo{volume}{2},
+  \bibinfo{pages}{143--169}.
+%Type = Article
+\bibitem[{Gershman and {\"O}lveczky(2020)}]{gershman2020neurobiology}
+\bibinfo{author}{Gershman, S.J.}, \bibinfo{author}{{\"O}lveczky, B.P.},
+  \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{The neurobiology of deep reinforcement learning}.
+\newblock \bibinfo{journal}{Current Biology} \bibinfo{volume}{30},
+  \bibinfo{pages}{R629--R632}.
+%Type = Article
+\bibitem[{Gomez-Marin and Ghazanfar(2019)}]{GOMEZMARIN201925}
+\bibinfo{author}{Gomez-Marin, A.}, \bibinfo{author}{Ghazanfar, A.A.},
+  \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{The life of behavior}.
+\newblock \bibinfo{journal}{Neuron} \bibinfo{volume}{104},
+  \bibinfo{pages}{25--36}.
+%Type = Article
+\bibitem[{Goulas et~al.(2021)Goulas, Damicelli and Hilgetag}]{GOULAS2021}
+\bibinfo{author}{Goulas, A.}, \bibinfo{author}{Damicelli, F.},
+  \bibinfo{author}{Hilgetag, C.C.}, \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{Bio-instantiated recurrent neural networks:
+  Integrating neurobiology-based network topology in artificial networks}.
+\newblock \bibinfo{journal}{Neural Networks} .
+%Type = Article
+\bibitem[{Green et~al.(2017)Green, Adachi, Shah, Hirokawa, Magani and
+  Maimon}]{green2017neural}
+\bibinfo{author}{Green, J.}, \bibinfo{author}{Adachi, A.},
+  \bibinfo{author}{Shah, K.K.}, \bibinfo{author}{Hirokawa, J.D.},
+  \bibinfo{author}{Magani, P.S.}, \bibinfo{author}{Maimon, G.},
+  \bibinfo{year}{2017}.
+\newblock \bibinfo{title}{A neural circuit architecture for angular integration
+  in drosophila}.
+\newblock \bibinfo{journal}{Nature} \bibinfo{volume}{546},
+  \bibinfo{pages}{101--106}.
+%Type = Article
+\bibitem[{Gr{\"u}nbaum and Willis(2015)}]{grunbaum2015spatial}
+\bibinfo{author}{Gr{\"u}nbaum, D.}, \bibinfo{author}{Willis, M.A.},
+  \bibinfo{year}{2015}.
+\newblock \bibinfo{title}{Spatial memory-based behaviors for locating sources
+  of odor plumes}.
+\newblock \bibinfo{journal}{Movement Ecology} \bibinfo{volume}{3},
+  \bibinfo{pages}{1--21}.
+%Type = Article
+\bibitem[{Gupta et~al.(2021)Gupta, Savarese, Ganguli and
+  Fei-Fei}]{gupta2021embodied}
+\bibinfo{author}{Gupta, A.}, \bibinfo{author}{Savarese, S.},
+  \bibinfo{author}{Ganguli, S.}, \bibinfo{author}{Fei-Fei, L.},
+  \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{Embodied intelligence via learning and evolution}.
+\newblock \bibinfo{journal}{arXiv preprint arXiv:2102.02202} .
+%Type = Article
+\bibitem[{Haesemeyer et~al.(2019)Haesemeyer, Schier and
+  Engert}]{haesemeyer2019convergent}
+\bibinfo{author}{Haesemeyer, M.}, \bibinfo{author}{Schier, A.F.},
+  \bibinfo{author}{Engert, F.}, \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Convergent temperature representations in artificial
+  and biological neural networks}.
+\newblock \bibinfo{journal}{Neuron} \bibinfo{volume}{103},
+  \bibinfo{pages}{1123--1134}.
+%Type = Article
+\bibitem[{Hassabis et~al.(2017)Hassabis, Kumaran, Summerfield and
+  Botvinick}]{hassabis2017neuroscience}
+\bibinfo{author}{Hassabis, D.}, \bibinfo{author}{Kumaran, D.},
+  \bibinfo{author}{Summerfield, C.}, \bibinfo{author}{Botvinick, M.},
+  \bibinfo{year}{2017}.
+\newblock \bibinfo{title}{Neuroscience-inspired artificial intelligence}.
+\newblock \bibinfo{journal}{Neuron} \bibinfo{volume}{95},
+  \bibinfo{pages}{245--258}.
+%Type = Article
+\bibitem[{Hasson et~al.(2020)Hasson, Nastase and Goldstein}]{hasson2020direct}
+\bibinfo{author}{Hasson, U.}, \bibinfo{author}{Nastase, S.A.},
+  \bibinfo{author}{Goldstein, A.}, \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Direct fit to nature: An evolutionary perspective on
+  biological and artificial neural networks}.
+\newblock \bibinfo{journal}{Neuron} \bibinfo{volume}{105},
+  \bibinfo{pages}{416--434}.
+%Type = Inproceedings
+\bibitem[{Henaff et~al.(2016)Henaff, Szlam and LeCun}]{henaff2016recurrent}
+\bibinfo{author}{Henaff, M.}, \bibinfo{author}{Szlam, A.},
+  \bibinfo{author}{LeCun, Y.}, \bibinfo{year}{2016}.
+\newblock \bibinfo{title}{Recurrent orthogonal networks and long-memory tasks},
+  in: \bibinfo{booktitle}{International Conference on Machine Learning},
+  \bibinfo{organization}{PMLR}. pp. \bibinfo{pages}{2034--2042}.
+%Type = Misc
+\bibitem[{Hill et~al.(2018)Hill, Raffin, Ernestus, Gleave, Kanervisto, Traore,
+  Dhariwal, Hesse, Klimov, Nichol, Plappert, Radford, Schulman, Sidor and
+  Wu}]{hill2018stable}
+\bibinfo{author}{Hill, A.}, \bibinfo{author}{Raffin, A.},
+  \bibinfo{author}{Ernestus, M.}, \bibinfo{author}{Gleave, A.},
+  \bibinfo{author}{Kanervisto, A.}, \bibinfo{author}{Traore, R.},
+  \bibinfo{author}{Dhariwal, P.}, \bibinfo{author}{Hesse, C.},
+  \bibinfo{author}{Klimov, O.}, \bibinfo{author}{Nichol, A.},
+  \bibinfo{author}{Plappert, M.}, \bibinfo{author}{Radford, A.},
+  \bibinfo{author}{Schulman, J.}, \bibinfo{author}{Sidor, S.},
+  \bibinfo{author}{Wu, Y.}, \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{Stable baselines}.
+\newblock
+  \bibinfo{howpublished}{\url{https://github.com/hill-a/stable-baselines}}.
+%Type = Article
+\bibitem[{{H}uk et~al.(2018){H}uk, {B}onnen and {H}e}]{huk_beyond_2018}
+\bibinfo{author}{{H}uk, A.}, \bibinfo{author}{{B}onnen, K.},
+  \bibinfo{author}{{H}e, B.}, \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{{B}eyond {T}rial-{B}ased {P}aradigms:
+  {{{C}ontinuous}} {B}ehavior, {O}ngoing {N}eural {A}ctivity, and {N}atural
+  {S}timuli}.
+\newblock \bibinfo{journal}{{T}he {J}ournal of {N}euroscience} ,
+  \bibinfo{pages}{1920--17}.
+%Type = Article
+\bibitem[{Jia et~al.(2021)Jia, Zhang, Cheng, Liu and Xu}]{jia2021neuronal}
+\bibinfo{author}{Jia, S.}, \bibinfo{author}{Zhang, T.}, \bibinfo{author}{Cheng,
+  X.}, \bibinfo{author}{Liu, H.}, \bibinfo{author}{Xu, B.},
+  \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{Neuronal-plasticity and reward-propagation improved
+  recurrent spiking neural networks}.
+\newblock \bibinfo{journal}{Frontiers in Neuroscience} \bibinfo{volume}{15},
+  \bibinfo{pages}{205}.
+%Type = Inproceedings
+\bibitem[{Kanitscheider and Fiete(2017)}]{kanitscheider2017training}
+\bibinfo{author}{Kanitscheider, I.}, \bibinfo{author}{Fiete, I.},
+  \bibinfo{year}{2017}.
+\newblock \bibinfo{title}{Training recurrent networks to generate hypotheses
+  about how the brain solves hard navigation problems}, in:
+  \bibinfo{booktitle}{Proceedings of the 31st International Conference on
+  Neural Information Processing Systems}, pp. \bibinfo{pages}{4532--4541}.
+%Type = Article
+\bibitem[{Kaushik et~al.(2020)Kaushik, Renz and
+  Olsson}]{kaushik2020characterizing}
+\bibinfo{author}{Kaushik, P.K.}, \bibinfo{author}{Renz, M.},
+  \bibinfo{author}{Olsson, S.B.}, \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Characterizing long-range search behavior in diptera
+  using complex 3d virtual environments}.
+\newblock \bibinfo{journal}{Proceedings of the National Academy of Sciences}
+  \bibinfo{volume}{117}, \bibinfo{pages}{12201--12207}.
+%Type = Article
+\bibitem[{Kennedy(1983)}]{kennedy1983zigzagging}
+\bibinfo{author}{Kennedy, J.}, \bibinfo{year}{1983}.
+\newblock \bibinfo{title}{Zigzagging and casting as a programmed response to
+  wind-borne odour: a review}.
+\newblock \bibinfo{journal}{Physiological Entomology} \bibinfo{volume}{8},
+  \bibinfo{pages}{109--120}.
+%Type = Article
+\bibitem[{Kennedy and Marsh(1974)}]{kennedy1974pheromone}
+\bibinfo{author}{Kennedy, J.S.}, \bibinfo{author}{Marsh, D.},
+  \bibinfo{year}{1974}.
+\newblock \bibinfo{title}{Pheromone-regulated anemotaxis in flying moths}.
+\newblock \bibinfo{journal}{Science} \bibinfo{volume}{184},
+  \bibinfo{pages}{999--1001}.
+%Type = Incollection
+\bibitem[{Kietzmann et~al.(2019)Kietzmann, McClure and
+  Kriegeskorte}]{kietzmann2019deep}
+\bibinfo{author}{Kietzmann, T.C.}, \bibinfo{author}{McClure, P.},
+  \bibinfo{author}{Kriegeskorte, N.}, \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Deep neural networks in computational neuroscience},
+  in: \bibinfo{booktitle}{Oxford Research Encyclopedia of Neuroscience}.
+%Type = Article
+\bibitem[{Kim et~al.(2019)Kim, Hermundstad, Romani, Abbott and
+  Jayaraman}]{kim2019generation}
+\bibinfo{author}{Kim, S.S.}, \bibinfo{author}{Hermundstad, A.M.},
+  \bibinfo{author}{Romani, S.}, \bibinfo{author}{Abbott, L.},
+  \bibinfo{author}{Jayaraman, V.}, \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Generation of stable heading representations in
+  diverse visual scenes}.
+\newblock \bibinfo{journal}{Nature} \bibinfo{volume}{576},
+  \bibinfo{pages}{126--131}.
+%Type = Inproceedings
+\bibitem[{Konda and Tsitsiklis(2000)}]{konda2000actor}
+\bibinfo{author}{Konda, V.R.}, \bibinfo{author}{Tsitsiklis, J.N.},
+  \bibinfo{year}{2000}.
+\newblock \bibinfo{title}{Actor-critic algorithms}, in:
+  \bibinfo{booktitle}{Advances in Neural Information Processing Systems}, pp.
+  \bibinfo{pages}{1008--1014}.
+%Type = Misc
+\bibitem[{Kostrikov(2021)}]{kostrikov2018pytorch}
+\bibinfo{author}{Kostrikov, I.}, \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{Pytorch implementations of reinforcement learning
+  algorithms}.
+\newblock \URLprefix
+  \url{https://github.com/ikostrikov/pytorch-a2c-ppo-acktr-gail}.
+%Type = Article
+\bibitem[{Kowadlo and Russell(2008)}]{kowadlo2008robot}
+\bibinfo{author}{Kowadlo, G.}, \bibinfo{author}{Russell, R.A.},
+  \bibinfo{year}{2008}.
+\newblock \bibinfo{title}{Robot odor localization: a taxonomy and survey}.
+\newblock \bibinfo{journal}{The International Journal of Robotics Research}
+  \bibinfo{volume}{27}, \bibinfo{pages}{869--894}.
+%Type = Article
+\bibitem[{Kriegeskorte(2015)}]{kriegeskorte2015deep}
+\bibinfo{author}{Kriegeskorte, N.}, \bibinfo{year}{2015}.
+\newblock \bibinfo{title}{{Deep Neural Networks: A new framework for modeling
+  biological vision and brain information processing}}.
+\newblock \bibinfo{journal}{Annual Review of Vision Science}
+  \bibinfo{volume}{1}, \bibinfo{pages}{417--446}.
+%Type = Article
+\bibitem[{Kriegeskorte and Wei(2021)}]{kriegeskorte2021neural}
+\bibinfo{author}{Kriegeskorte, N.}, \bibinfo{author}{Wei, X.X.},
+  \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{Neural tuning and representational geometry}.
+\newblock \bibinfo{journal}{Nature Neuroscience} , \bibinfo{pages}{1--16}.
+%Type = Article
+\bibitem[{Kwon et~al.(2020)Kwon, Daptardar, Schrater and
+  Pitkow}]{kwon2020inverse}
+\bibinfo{author}{Kwon, M.}, \bibinfo{author}{Daptardar, S.},
+  \bibinfo{author}{Schrater, P.R.}, \bibinfo{author}{Pitkow, Z.},
+  \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Inverse rational control with partially observable
+  continuous nonlinear dynamics}.
+\newblock \bibinfo{journal}{Advances in Neural Information Processing Systems}
+  \bibinfo{volume}{33}.
+%Type = Article
+\bibitem[{Le~Mo{\"e}l and Wystrach(2020)}]{le2020towards}
+\bibinfo{author}{Le~Mo{\"e}l, F.}, \bibinfo{author}{Wystrach, A.},
+  \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Towards a multi-level understanding in insect
+  navigation}.
+\newblock \bibinfo{journal}{Current Opinion in Insect Science} .
+%Type = Article
+\bibitem[{Leitch et~al.(2020)Leitch, Ponce, van Breugel and
+  Dickinson}]{leitch2020long}
+\bibinfo{author}{Leitch, K.}, \bibinfo{author}{Ponce, F.}, \bibinfo{author}{van
+  Breugel, F.}, \bibinfo{author}{Dickinson, M.H.}, \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{The long-distance flight behavior of drosophila
+  suggests a general model for wind-assisted dispersal in insects}.
+\newblock \bibinfo{journal}{bioRxiv} .
+%Type = Article
+\bibitem[{Lin and Richards(2021)}]{lin2021time}
+\bibinfo{author}{Lin, D.}, \bibinfo{author}{Richards, B.A.},
+  \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{Time cell encoding in deep reinforcement learning
+  agents depends on mnemonic demands}.
+\newblock \bibinfo{journal}{bioRxiv} .
+%Type = Inproceedings
+\bibitem[{Lochmatter and Martinoli(2009)}]{lochmatter2009theoretical}
+\bibinfo{author}{Lochmatter, T.}, \bibinfo{author}{Martinoli, A.},
+  \bibinfo{year}{2009}.
+\newblock \bibinfo{title}{Theoretical analysis of three bio-inspired plume
+  tracking algorithms}, in: \bibinfo{booktitle}{2009 IEEE International
+  Conference on Robotics and Automation}, \bibinfo{organization}{IEEE}. pp.
+  \bibinfo{pages}{2661--2668}.
+%Type = Inproceedings
+\bibitem[{Maheswaranathan et~al.(2019a)Maheswaranathan, Williams, Golub,
+  Ganguli and Sussillo}]{maheswaranathan2019reverse}
+\bibinfo{author}{Maheswaranathan, N.}, \bibinfo{author}{Williams, A.},
+  \bibinfo{author}{Golub, M.}, \bibinfo{author}{Ganguli, S.},
+  \bibinfo{author}{Sussillo, D.}, \bibinfo{year}{2019}a.
+\newblock \bibinfo{title}{Reverse engineering recurrent networks for sentiment
+  classification reveals line attractor dynamics}, in:
+  \bibinfo{booktitle}{Advances in Neural Information Processing Systems}, pp.
+  \bibinfo{pages}{15696--15705}.
+%Type = Inproceedings
+\bibitem[{Maheswaranathan et~al.(2019b)Maheswaranathan, Williams, Golub,
+  Ganguli and Sussillo}]{maheswaranathan2019universality}
+\bibinfo{author}{Maheswaranathan, N.}, \bibinfo{author}{Williams, A.},
+  \bibinfo{author}{Golub, M.}, \bibinfo{author}{Ganguli, S.},
+  \bibinfo{author}{Sussillo, D.}, \bibinfo{year}{2019}b.
+\newblock \bibinfo{title}{Universality and individuality in neural dynamics
+  across large populations of recurrent networks}, in:
+  \bibinfo{booktitle}{Advances in Neural Information Processing Systems}, pp.
+  \bibinfo{pages}{15629--15641}.
+%Type = Inproceedings
+\bibitem[{Merel et~al.(2019)Merel, Aldarondo, Marshall, Tassa, Wayne and
+  Olveczky}]{merel2019deep}
+\bibinfo{author}{Merel, J.}, \bibinfo{author}{Aldarondo, D.},
+  \bibinfo{author}{Marshall, J.}, \bibinfo{author}{Tassa, Y.},
+  \bibinfo{author}{Wayne, G.}, \bibinfo{author}{Olveczky, B.},
+  \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Deep neuroethology of a virtual rodent}, in:
+  \bibinfo{booktitle}{International Conference on Learning Representations}.
+%Type = Inproceedings
+\bibitem[{Michaelides and Panayiotou(2005)}]{michaelides2005plume}
+\bibinfo{author}{Michaelides, M.P.}, \bibinfo{author}{Panayiotou, C.G.},
+  \bibinfo{year}{2005}.
+\newblock \bibinfo{title}{Plume source position estimation using sensor
+  networks}, in: \bibinfo{booktitle}{Proceedings of the 2005 IEEE International
+  Symposium on, Mediterrean Conference on Control and Automation Intelligent
+  Control, 2005.}, \bibinfo{organization}{IEEE}. pp. \bibinfo{pages}{731--736}.
+%Type = Article
+\bibitem[{M{\l}ynarski and Hermundstad(2018)}]{mlynarski2018adaptive}
+\bibinfo{author}{M{\l}ynarski, W.F.}, \bibinfo{author}{Hermundstad, A.M.},
+  \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{Adaptive coding for dynamic sensory inference}.
+\newblock \bibinfo{journal}{Elife} \bibinfo{volume}{7},
+  \bibinfo{pages}{e32055}.
+%Type = Article
+\bibitem[{Mnih et~al.(2013)Mnih, Kavukcuoglu, Silver, Graves, Antonoglou,
+  Wierstra and Riedmiller}]{mnih2013playing}
+\bibinfo{author}{Mnih, V.}, \bibinfo{author}{Kavukcuoglu, K.},
+  \bibinfo{author}{Silver, D.}, \bibinfo{author}{Graves, A.},
+  \bibinfo{author}{Antonoglou, I.}, \bibinfo{author}{Wierstra, D.},
+  \bibinfo{author}{Riedmiller, M.}, \bibinfo{year}{2013}.
+\newblock \bibinfo{title}{Playing atari with deep reinforcement learning}.
+\newblock \bibinfo{journal}{arXiv preprint arXiv:1312.5602} .
+%Type = Inproceedings
+\bibitem[{Nassar et~al.(2018)Nassar, Linderman, Bugallo and
+  Park}]{nassar2018tree}
+\bibinfo{author}{Nassar, J.}, \bibinfo{author}{Linderman, S.},
+  \bibinfo{author}{Bugallo, M.}, \bibinfo{author}{Park, I.M.},
+  \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{Tree-structured recurrent switching linear dynamical
+  systems for multi-scale modeling}, in: \bibinfo{booktitle}{International
+  Conference on Learning Representations}.
+%Type = Article
+\bibitem[{Nastase et~al.(2020)Nastase, Goldstein and Hasson}]{nastase2020keep}
+\bibinfo{author}{Nastase, S.A.}, \bibinfo{author}{Goldstein, A.},
+  \bibinfo{author}{Hasson, U.}, \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Keep it real: rethinking the primacy of experimental
+  control in cognitive neuroscience}.
+\newblock \bibinfo{journal}{NeuroImage} \bibinfo{volume}{222},
+  \bibinfo{pages}{117254}.
+%Type = Article
+\bibitem[{Okubo et~al.(2020)Okubo, Patella, D’Alessandro and
+  Wilson}]{okubo2020neural}
+\bibinfo{author}{Okubo, T.S.}, \bibinfo{author}{Patella, P.},
+  \bibinfo{author}{D’Alessandro, I.}, \bibinfo{author}{Wilson, R.I.},
+  \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{A neural network for wind-guided compass navigation}.
+\newblock \bibinfo{journal}{Neuron} .
+%Type = Misc
+\bibitem[{Pandas(2021)}]{ewma_pandas}
+\bibinfo{author}{Pandas}, \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{Pandas documentation on exponentially weighted
+  windows}.
+\newblock \URLprefix
+  \url{https://pandas.pydata.org/docs/user_guide/window.html#window-exponentially-weighted}.
+%Type = Article
+\bibitem[{Pang et~al.(2018)Pang, van Breugel, Dickinson, Riffell and
+  Fairhall}]{pang2018history}
+\bibinfo{author}{Pang, R.}, \bibinfo{author}{van Breugel, F.},
+  \bibinfo{author}{Dickinson, M.}, \bibinfo{author}{Riffell, J.A.},
+  \bibinfo{author}{Fairhall, A.}, \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{History dependence in insect flight decisions during
+  odor tracking}.
+\newblock \bibinfo{journal}{PLoS Computational Biology} \bibinfo{volume}{14},
+  \bibinfo{pages}{e1005969}.
+%Type = Article
+\bibitem[{Pang et~al.(2016)Pang, Lansdell and
+  Fairhall}]{pang2016dimensionality}
+\bibinfo{author}{Pang, R.}, \bibinfo{author}{Lansdell, B.J.},
+  \bibinfo{author}{Fairhall, A.L.}, \bibinfo{year}{2016}.
+\newblock \bibinfo{title}{Dimensionality reduction in neuroscience}.
+\newblock \bibinfo{journal}{Current Biology} \bibinfo{volume}{26},
+  \bibinfo{pages}{R656--R660}.
+%Type = Article
+\bibitem[{Park et~al.(2016)Park, Hein, Bobkov, Reidenbach, Ache and
+  Principe}]{park2016neurally}
+\bibinfo{author}{Park, I.J.}, \bibinfo{author}{Hein, A.M.},
+  \bibinfo{author}{Bobkov, Y.V.}, \bibinfo{author}{Reidenbach, M.A.},
+  \bibinfo{author}{Ache, B.W.}, \bibinfo{author}{Principe, J.C.},
+  \bibinfo{year}{2016}.
+\newblock \bibinfo{title}{Neurally encoding time for olfactory navigation}.
+\newblock \bibinfo{journal}{PLoS Computational Biology} \bibinfo{volume}{12}.
+%Type = Article
+\bibitem[{Pfeiffer and Homberg(2014)}]{pfeiffer2014organization}
+\bibinfo{author}{Pfeiffer, K.}, \bibinfo{author}{Homberg, U.},
+  \bibinfo{year}{2014}.
+\newblock \bibinfo{title}{Organization and functional roles of the central
+  complex in the insect brain}.
+\newblock \bibinfo{journal}{Annual Review of Entomology} \bibinfo{volume}{59},
+  \bibinfo{pages}{165--184}.
+%Type = Article
+\bibitem[{Plum and Labonte(2021)}]{plum2021scant}
+\bibinfo{author}{Plum, F.}, \bibinfo{author}{Labonte, D.},
+  \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{scant—an open-source platform for the creation of
+  3d models of arthropods (and other small objects)}.
+\newblock \bibinfo{journal}{PeerJ} \bibinfo{volume}{9},
+  \bibinfo{pages}{e11155}.
+%Type = Article
+\bibitem[{Rajan and Abbott(2006)}]{rajan2006eigenvalue}
+\bibinfo{author}{Rajan, K.}, \bibinfo{author}{Abbott, L.F.},
+  \bibinfo{year}{2006}.
+\newblock \bibinfo{title}{Eigenvalue spectra of random matrices for neural
+  networks}.
+\newblock \bibinfo{journal}{Physical Review Letters} \bibinfo{volume}{97},
+  \bibinfo{pages}{188104}.
+%Type = Article
+\bibitem[{Rapp and Nawrot(2020)}]{rapp2020spiking}
+\bibinfo{author}{Rapp, H.}, \bibinfo{author}{Nawrot, M.P.},
+  \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{A spiking neural program for sensorimotor control
+  during foraging in flying insects}.
+\newblock \bibinfo{journal}{Proceedings of the National Academy of Sciences}
+  \bibinfo{volume}{117}, \bibinfo{pages}{28412--28421}.
+%Type = Article
+\bibitem[{Recanatesi et~al.(2019)Recanatesi, Ocker, Buice and
+  Shea-Brown}]{recanatesi2019dimensionality}
+\bibinfo{author}{Recanatesi, S.}, \bibinfo{author}{Ocker, G.K.},
+  \bibinfo{author}{Buice, M.A.}, \bibinfo{author}{Shea-Brown, E.},
+  \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Dimensionality in recurrent spiking networks: global
+  trends in activity and local origins in connectivity}.
+\newblock \bibinfo{journal}{PLoS Computational Biology} \bibinfo{volume}{15},
+  \bibinfo{pages}{e1006446}.
+%Type = Article
+\bibitem[{Reddy et~al.(2021)Reddy, Shraiman and Vergassola}]{reddy2021sector}
+\bibinfo{author}{Reddy, G.}, \bibinfo{author}{Shraiman, B.I.},
+  \bibinfo{author}{Vergassola, M.}, \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{Sector search strategies for odor trail tracking}.
+\newblock \bibinfo{journal}{bioRxiv} .
+%Type = Article
+\bibitem[{Richards et~al.(2019)Richards, Lillicrap, Beaudoin, Bengio, Bogacz,
+  Christensen, Clopath, Costa, de~Berker, Ganguli et~al.}]{richards2019deep}
+\bibinfo{author}{Richards, B.A.}, \bibinfo{author}{Lillicrap, T.P.},
+  \bibinfo{author}{Beaudoin, P.}, \bibinfo{author}{Bengio, Y.},
+  \bibinfo{author}{Bogacz, R.}, \bibinfo{author}{Christensen, A.},
+  \bibinfo{author}{Clopath, C.}, \bibinfo{author}{Costa, R.P.},
+  \bibinfo{author}{de~Berker, A.}, \bibinfo{author}{Ganguli, S.}, et~al.,
+  \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{A deep learning framework for neuroscience}.
+\newblock \bibinfo{journal}{Nature Neuroscience} \bibinfo{volume}{22},
+  \bibinfo{pages}{1761--1770}.
+%Type = Article
+\bibitem[{R{\'\i}os et~al.(2021)R{\'\i}os, {\"O}zdil, Ramalingasetty, Arreguit,
+  Rosset, Knott, Ijspeert and Ramdya}]{rios2021neuromechfly}
+\bibinfo{author}{R{\'\i}os, V.L.}, \bibinfo{author}{{\"O}zdil, P.G.},
+  \bibinfo{author}{Ramalingasetty, S.T.}, \bibinfo{author}{Arreguit, J.},
+  \bibinfo{author}{Rosset, S.C.}, \bibinfo{author}{Knott, G.},
+  \bibinfo{author}{Ijspeert, A.J.}, \bibinfo{author}{Ramdya, P.},
+  \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{Neuromechfly, a neuromechanical model of adult
+  drosophila melanogaster}.
+\newblock \bibinfo{journal}{bioRxiv} .
+%Type = Article
+\bibitem[{Saxena and Cunningham(2019)}]{saxena2019towards}
+\bibinfo{author}{Saxena, S.}, \bibinfo{author}{Cunningham, J.P.},
+  \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Towards the neural population doctrine}.
+\newblock \bibinfo{journal}{Current Opinion in Neurobiology}
+  \bibinfo{volume}{55}, \bibinfo{pages}{103--111}.
+%Type = Article
+\bibitem[{Scheffer et~al.(2020)Scheffer, Xu, Januszewski, Lu, Takemura,
+  Hayworth, Huang, Shinomiya, Maitlin-Shepard, Berg
+  et~al.}]{scheffer2020connectome}
+\bibinfo{author}{Scheffer, L.K.}, \bibinfo{author}{Xu, C.S.},
+  \bibinfo{author}{Januszewski, M.}, \bibinfo{author}{Lu, Z.},
+  \bibinfo{author}{Takemura, S.y.}, \bibinfo{author}{Hayworth, K.J.},
+  \bibinfo{author}{Huang, G.B.}, \bibinfo{author}{Shinomiya, K.},
+  \bibinfo{author}{Maitlin-Shepard, J.}, \bibinfo{author}{Berg, S.}, et~al.,
+  \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{A connectome and analysis of the adult drosophila
+  central brain}.
+\newblock \bibinfo{journal}{Elife} \bibinfo{volume}{9},
+  \bibinfo{pages}{e57443}.
+%Type = Article
+\bibitem[{Schulman et~al.(2015)Schulman, Moritz, Levine, Jordan and
+  Abbeel}]{schulman2015high}
+\bibinfo{author}{Schulman, J.}, \bibinfo{author}{Moritz, P.},
+  \bibinfo{author}{Levine, S.}, \bibinfo{author}{Jordan, M.},
+  \bibinfo{author}{Abbeel, P.}, \bibinfo{year}{2015}.
+\newblock \bibinfo{title}{High-dimensional continuous control using generalized
+  advantage estimation}.
+\newblock \bibinfo{journal}{arXiv preprint arXiv:1506.02438} .
+%Type = Article
+\bibitem[{Schulman et~al.(2017)Schulman, Wolski, Dhariwal, Radford and
+  Klimov}]{schulman2017proximal}
+\bibinfo{author}{Schulman, J.}, \bibinfo{author}{Wolski, F.},
+  \bibinfo{author}{Dhariwal, P.}, \bibinfo{author}{Radford, A.},
+  \bibinfo{author}{Klimov, O.}, \bibinfo{year}{2017}.
+\newblock \bibinfo{title}{Proximal policy optimization algorithms}.
+\newblock \bibinfo{journal}{arXiv preprint arXiv:1707.06347} .
+%Type = Article
+\bibitem[{Seelig and Jayaraman(2015)}]{seelig2015neural}
+\bibinfo{author}{Seelig, J.D.}, \bibinfo{author}{Jayaraman, V.},
+  \bibinfo{year}{2015}.
+\newblock \bibinfo{title}{Neural dynamics for landmark orientation and angular
+  path integration}.
+\newblock \bibinfo{journal}{Nature} \bibinfo{volume}{521},
+  \bibinfo{pages}{186--191}.
+%Type = Article
+\bibitem[{Singh et~al.(2021)Singh, Peterson, Rao and Brunton}]{singh2021mining}
+\bibinfo{author}{Singh, S.H.}, \bibinfo{author}{Peterson, S.M.},
+  \bibinfo{author}{Rao, R.P.}, \bibinfo{author}{Brunton, B.W.},
+  \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{Mining naturalistic human behaviors in long-term
+  video and neural recordings}.
+\newblock \bibinfo{journal}{Journal of Neuroscience Methods}
+  \bibinfo{volume}{358}, \bibinfo{pages}{109199}.
+%Type = Article
+\bibitem[{Song et~al.(2017)Song, Yang and Wang}]{song2017reward}
+\bibinfo{author}{Song, H.F.}, \bibinfo{author}{Yang, G.R.},
+  \bibinfo{author}{Wang, X.J.}, \bibinfo{year}{2017}.
+\newblock \bibinfo{title}{Reward-based training of recurrent neural networks
+  for cognitive and value-based tasks}.
+\newblock \bibinfo{journal}{Elife} \bibinfo{volume}{6},
+  \bibinfo{pages}{e21492}.
+%Type = Article
+\bibitem[{Song et~al.(2020)Song, Kidzi{\'n}ski, Peng, Ong, Hicks, Levine,
+  Atkeson and Delp}]{song2020deep}
+\bibinfo{author}{Song, S.}, \bibinfo{author}{Kidzi{\'n}ski, {\L}.},
+  \bibinfo{author}{Peng, X.B.}, \bibinfo{author}{Ong, C.},
+  \bibinfo{author}{Hicks, J.L.}, \bibinfo{author}{Levine, S.},
+  \bibinfo{author}{Atkeson, C.}, \bibinfo{author}{Delp, S.},
+  \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Deep reinforcement learning for modeling human
+  locomotion control in neuromechanical simulation}.
+\newblock \bibinfo{journal}{bioRxiv} .
+%Type = Article
+\bibitem[{Sonkusare et~al.(2019)Sonkusare, Breakspear and
+  Guo}]{sonkusare2019naturalistic}
+\bibinfo{author}{Sonkusare, S.}, \bibinfo{author}{Breakspear, M.},
+  \bibinfo{author}{Guo, C.}, \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Naturalistic stimuli in neuroscience: critically
+  acclaimed}.
+\newblock \bibinfo{journal}{Trends in Cognitive Sciences} \bibinfo{volume}{23},
+  \bibinfo{pages}{699--714}.
+%Type = Article
+\bibitem[{Stanley et~al.(2019)Stanley, Clune, Lehman and
+  Miikkulainen}]{stanley2019designing}
+\bibinfo{author}{Stanley, K.O.}, \bibinfo{author}{Clune, J.},
+  \bibinfo{author}{Lehman, J.}, \bibinfo{author}{Miikkulainen, R.},
+  \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Designing neural networks through neuroevolution}.
+\newblock \bibinfo{journal}{Nature Machine Intelligence} \bibinfo{volume}{1},
+  \bibinfo{pages}{24--35}.
+%Type = Article
+\bibitem[{Strobl et~al.(2008)Strobl, Boulesteix, Kneib, Augustin and
+  Zeileis}]{strobl2008conditional}
+\bibinfo{author}{Strobl, C.}, \bibinfo{author}{Boulesteix, A.L.},
+  \bibinfo{author}{Kneib, T.}, \bibinfo{author}{Augustin, T.},
+  \bibinfo{author}{Zeileis, A.}, \bibinfo{year}{2008}.
+\newblock \bibinfo{title}{Conditional variable importance for random forests}.
+\newblock \bibinfo{journal}{BMC Bioinformatics} \bibinfo{volume}{9},
+  \bibinfo{pages}{1--11}.
+%Type = Inproceedings
+\bibitem[{Sun et~al.(2018)Sun, Mangan and Yue}]{sun2018analysis}
+\bibinfo{author}{Sun, X.}, \bibinfo{author}{Mangan, M.}, \bibinfo{author}{Yue,
+  S.}, \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{An analysis of a ring attractor model for cue
+  integration}, in: \bibinfo{booktitle}{Conference on Biomimetic and Biohybrid
+  Systems}, \bibinfo{organization}{Springer}. pp. \bibinfo{pages}{459--470}.
+%Type = Article
+\bibitem[{Sussillo(2014)}]{sussillo2014neural}
+\bibinfo{author}{Sussillo, D.}, \bibinfo{year}{2014}.
+\newblock \bibinfo{title}{Neural circuits as computational dynamical systems}.
+\newblock \bibinfo{journal}{Current Opinion in Neurobiology}
+  \bibinfo{volume}{25}, \bibinfo{pages}{156--163}.
+%Type = Article
+\bibitem[{Sussillo and Abbott(2009)}]{sussillo2009generating}
+\bibinfo{author}{Sussillo, D.}, \bibinfo{author}{Abbott, L.F.},
+  \bibinfo{year}{2009}.
+\newblock \bibinfo{title}{Generating coherent patterns of activity from chaotic
+  neural networks}.
+\newblock \bibinfo{journal}{Neuron} \bibinfo{volume}{63},
+  \bibinfo{pages}{544--557}.
+%Type = Article
+\bibitem[{Sussillo and Barak(2013)}]{sussillo2013opening}
+\bibinfo{author}{Sussillo, D.}, \bibinfo{author}{Barak, O.},
+  \bibinfo{year}{2013}.
+\newblock \bibinfo{title}{Opening the black box: low-dimensional dynamics in
+  high-dimensional recurrent neural networks}.
+\newblock \bibinfo{journal}{Neural Computation} \bibinfo{volume}{25},
+  \bibinfo{pages}{626--649}.
+%Type = Article
+\bibitem[{Sussillo et~al.(2015)Sussillo, Churchland, Kaufman and
+  Shenoy}]{sussillo2015neural}
+\bibinfo{author}{Sussillo, D.}, \bibinfo{author}{Churchland, M.M.},
+  \bibinfo{author}{Kaufman, M.T.}, \bibinfo{author}{Shenoy, K.V.},
+  \bibinfo{year}{2015}.
+\newblock \bibinfo{title}{A neural network that finds a naturalistic solution
+  for the production of muscle activity}.
+\newblock \bibinfo{journal}{Nature Neuroscience} \bibinfo{volume}{18},
+  \bibinfo{pages}{1025--1033}.
+%Type = Book
+\bibitem[{Sutton and Barto(2018)}]{sutton2018reinforcement}
+\bibinfo{author}{Sutton, R.S.}, \bibinfo{author}{Barto, A.G.},
+  \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{Reinforcement Learning: An Introduction}.
+\newblock \bibinfo{publisher}{MIT press}.
+%Type = Article
+\bibitem[{Verma et~al.(2018)Verma, Novati and
+  Koumoutsakos}]{verma2018efficient}
+\bibinfo{author}{Verma, S.}, \bibinfo{author}{Novati, G.},
+  \bibinfo{author}{Koumoutsakos, P.}, \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{Efficient collective swimming by harnessing vortices
+  through deep reinforcement learning}.
+\newblock \bibinfo{journal}{Proceedings of the National Academy of Sciences}
+  \bibinfo{volume}{115}, \bibinfo{pages}{5849--5854}.
+%Type = Article
+\bibitem[{Vogels et~al.(2005)Vogels, Rajan and Abbott}]{vogels2005neural}
+\bibinfo{author}{Vogels, T.P.}, \bibinfo{author}{Rajan, K.},
+  \bibinfo{author}{Abbott, L.F.}, \bibinfo{year}{2005}.
+\newblock \bibinfo{title}{Neural network dynamics}.
+\newblock \bibinfo{journal}{Annual Review of Neuroscience}
+  \bibinfo{volume}{28}, \bibinfo{pages}{357--376}.
+%Type = Article
+\bibitem[{Vouloutsi et~al.(2013)Vouloutsi, LopezSerrano, Mathews, Chimeno,
+  Ziyatdinov, i~Lluna, i~Badia and Verschure}]{vouloutsi2013synthetic}
+\bibinfo{author}{Vouloutsi, V.}, \bibinfo{author}{LopezSerrano, L.L.},
+  \bibinfo{author}{Mathews, Z.}, \bibinfo{author}{Chimeno, A.E.},
+  \bibinfo{author}{Ziyatdinov, A.}, \bibinfo{author}{i~Lluna, A.P.},
+  \bibinfo{author}{i~Badia, S.B.}, \bibinfo{author}{Verschure, P.F.J.},
+  \bibinfo{year}{2013}.
+\newblock \bibinfo{title}{The synthetic moth: a neuromorphic approach toward
+  artificial olfaction in robots}.
+\newblock \bibinfo{journal}{Neuromorphic Olfaction} ,
+  \bibinfo{pages}{117--152}.
+%Type = Article
+\bibitem[{Vyas et~al.(2020)Vyas, Golub, Sussillo and
+  Shenoy}]{vyas2020computation}
+\bibinfo{author}{Vyas, S.}, \bibinfo{author}{Golub, M.D.},
+  \bibinfo{author}{Sussillo, D.}, \bibinfo{author}{Shenoy, K.V.},
+  \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Computation through neural population dynamics}.
+\newblock \bibinfo{journal}{Annual Review of Neuroscience}
+  \bibinfo{volume}{43}, \bibinfo{pages}{249--275}.
+%Type = Article
+\bibitem[{Wall and Perry(1987)}]{wall1987range}
+\bibinfo{author}{Wall, C.}, \bibinfo{author}{Perry, J.}, \bibinfo{year}{1987}.
+\newblock \bibinfo{title}{Range of action of moth sex-attractant sources}.
+\newblock \bibinfo{journal}{Entomologia experimentalis et applicata}
+  \bibinfo{volume}{44}, \bibinfo{pages}{5--14}.
+%Type = Article
+\bibitem[{Wang et~al.(2018)Wang, Kurth-Nelson, Kumaran, Tirumala, Soyer, Leibo,
+  Hassabis and Botvinick}]{wang2018prefrontal}
+\bibinfo{author}{Wang, J.X.}, \bibinfo{author}{Kurth-Nelson, Z.},
+  \bibinfo{author}{Kumaran, D.}, \bibinfo{author}{Tirumala, D.},
+  \bibinfo{author}{Soyer, H.}, \bibinfo{author}{Leibo, J.Z.},
+  \bibinfo{author}{Hassabis, D.}, \bibinfo{author}{Botvinick, M.},
+  \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{Prefrontal cortex as a meta-reinforcement learning
+  system}.
+\newblock \bibinfo{journal}{Nature Neuroscience} \bibinfo{volume}{21},
+  \bibinfo{pages}{860--868}.
+%Type = Article
+\bibitem[{Weber and Fairhall(2019)}]{weber2019role}
+\bibinfo{author}{Weber, A.I.}, \bibinfo{author}{Fairhall, A.L.},
+  \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{The role of adaptation in neural coding}.
+\newblock \bibinfo{journal}{Current Opinion in Neurobiology}
+  \bibinfo{volume}{58}, \bibinfo{pages}{135--140}.
+%Type = Article
+\bibitem[{Weinstein and Botvinick(2017)}]{weinstein2017structure}
+\bibinfo{author}{Weinstein, A.}, \bibinfo{author}{Botvinick, M.M.},
+  \bibinfo{year}{2017}.
+\newblock \bibinfo{title}{Structure learning in motor control: A deep
+  reinforcement learning model}.
+\newblock \bibinfo{journal}{arXiv preprint arXiv:1706.06827} .
+%Type = Article
+\bibitem[{Yang et~al.(2019)Yang, Joglekar, Song, Newsome and
+  Wang}]{yang2019task}
+\bibinfo{author}{Yang, G.R.}, \bibinfo{author}{Joglekar, M.R.},
+  \bibinfo{author}{Song, H.F.}, \bibinfo{author}{Newsome, W.T.},
+  \bibinfo{author}{Wang, X.J.}, \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Task representations in neural networks trained to
+  perform many cognitive tasks}.
+\newblock \bibinfo{journal}{Nature Neuroscience} \bibinfo{volume}{22},
+  \bibinfo{pages}{297--306}.
+%Type = Article
+\bibitem[{Yuan et~al.(2019)Yuan, Wu, Yan and Tang}]{yuan2019reinforcement}
+\bibinfo{author}{Yuan, M.}, \bibinfo{author}{Wu, X.}, \bibinfo{author}{Yan,
+  R.}, \bibinfo{author}{Tang, H.}, \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Reinforcement learning in spiking neural networks
+  with stochastic and deterministic synapses}.
+\newblock \bibinfo{journal}{Neural Computation} \bibinfo{volume}{31},
+  \bibinfo{pages}{2368--2389}.
+
+\end{thebibliography}
