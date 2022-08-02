@@ -39,7 +39,6 @@ python -u main.py --env-name plume \
  --num-env-steps 10000 \
  --dataset $DATASET \
  --seed $RANDOM \
- --dynamic True \
  --eval-interval 1 \
  --eval_type skip \
  --eval_episodes 3 \
@@ -47,6 +46,8 @@ python -u main.py --env-name plume \
  --r_shaping $SHAPE \
  --diff_max 0.9 \
  --diff_min 0.4 \
+ --diffusion_max 1.0 \
+ --diffusion_min 0.33 \
  --odor_scaling True \
  --flipping True \
  --qvar 0.0 \
@@ -227,6 +228,8 @@ def get_args():
     parser.add_argument('--outsuffix',  type=str, default='')
     parser.add_argument('--walking',  type=bool, default=False)
     parser.add_argument('--radiusx',  type=float, default=1.0)
+    parser.add_argument('--diffusion_min',  type=float, default=1.0)
+    parser.add_argument('--diffusion_max',  type=float, default=1.0)
     parser.add_argument('--r_shaping',  type=str, nargs='+', default=['step'])
     parser.add_argument('--wind_rel',  type=bool, default=True)
     parser.add_argument('--action_feedback',  type=bool, default=False)
@@ -332,7 +335,8 @@ def training_loop(agent, envs, args, device, actor_critic,
             # Sample actions
             with torch.no_grad():
                 value, action, action_log_prob, recurrent_hidden_states, activities = actor_critic.act(
-                    rollouts.obs[step], rollouts.recurrent_hidden_states[step],
+                    rollouts.obs[step], 
+                    rollouts.recurrent_hidden_states[step],
                     rollouts.masks[step])
 
             # Obser reward and next obs
@@ -600,6 +604,8 @@ def main():
     args.qvar = 0.0 # doesn't matter for fixed
     args.obs_noise = 0.0
     args.act_noise = 0.0
+    args.diffusion_max = args.diffusion_min # always test at min diffusion rate
+
     for ds in datasets:
       print(f"Evaluating on dataset: {ds}")
       args.dataset = ds

@@ -13,25 +13,34 @@ echo $MODELDIRS
 for DIR in $MODELDIRS; do
     LOGFILE=${DIR}/posteval.log
     python -u postEvalCli.py --model_dir $DIR \
-      --viz_episodes 5 >> $LOGFILE 2>&1 &
+      --viz_episodes 20 >> $LOGFILE 2>&1 &
 done
 # --walking False # does NOT work that way!
-tail -f /home/satsingh/plume/plumezoo/latest/fly/memory/*VRNN*/posteval.log
+#tail -f /home/satsingh/plume/plumezoo/latest/fly/memory/*VRNN*/posteval.log
 
 # Sparse
 for DIR in $MODELDIRS; do
     LOGFILE=${DIR}/posteval.log
     python -u postEvalCli.py --model_dir $DIR \
-      --viz_episodes 5 --birthxs 0.4 >> $LOGFILE 2>&1 &
+      --viz_episodes 20 --birthxs 0.4 >> $LOGFILE 2>&1 &
 done
 
-
+tail -f $LOGFILE
 
 # Stitch videos side-by-side: see vid_stitch_cli for more options
 for FNEURAL in $(find /home/satsingh/plume/plumezoo/latest/fly/memory/ -name "*pca3d_common_ep*.mp4"); do 
     FTRAJ=$(echo $FNEURAL | sed s/_pca3d_common//g) 
     # echo $FNEURAL $FTRAJ
     python -u ~/plume/plume2/vid_stitch_cli.py --fneural $FNEURAL --ftraj $FTRAJ
+done
+
+# Stitch videos side-by-side: see vid_stitch_cli for more options
+MAXJOBS=20
+for FNEURAL in $(find /home/satsingh/plume/plumezoo/latest/fly/memory/ -name "*pca3d_common_ep*.mp4"); do 
+  while (( $(jobs -p | wc -l) >= MAXJOBS )); do sleep 10; done 
+  FTRAJ=$(echo $FNEURAL | sed s/_pca3d_common//g) 
+  # echo $FNEURAL $FTRAJ
+  python -u ~/plume/plume2/vid_stitch_cli.py --fneural $FNEURAL --ftraj $FTRAJ &
 done
 
 
@@ -120,11 +129,17 @@ def post_eval(model_dir, use_datasets, n_episodes_home, n_episodes_other, viz_ep
 
 
     # Animate (1) trajectory, (2) Neural on common subspace, (3) eigen    
-    subset_df = selected_df.groupby(['dataset', 'outcome']).sample(viz_episodes)
+    # subset_df = selected_df.groupby(['dataset', 'outcome']).sample(viz_episodes)
     # subset_df = selected_df.query("outcome == 'HOME' and dataset == 'noisy3x5b5'").sample(viz_episodes)
     # subset_df = selected_df.query("outcome == 'HOME' and dataset == 'constantx5b5'").sample(viz_episodes)
     # subset_df = selected_df.query("outcome == 'HOME' and dataset == 'switch45x5b5'").sample(viz_episodes)
-    # subset_df = selected_df.groupby(['dataset', 'outcome']).head(viz_episodes)
+    # subset_df = selected_df.query("outcome == 'OOB' and dataset == 'noisy3x5b5'").sample(viz_episodes)
+    # subset_df = selected_df.query("outcome == 'OOB' and dataset == 'constantx5b5'").sample(viz_episodes)
+    # subset_df = selected_df.query("outcome == 'OOB' and dataset == 'switch45x5b5'").sample(viz_episodes)
+    # subset_df = selected_df.query("dataset == 'noisy3x5b5'").groupby(['dataset', 'outcome']).sample(viz_episodes)
+    # subset_df = selected_df.query("dataset == 'constantx5b5'").groupby(['dataset', 'outcome']).sample(viz_episodes)
+    # subset_df = selected_df.query("dataset == 'switch45x5b5'").groupby(['dataset', 'outcome']).sample(viz_episodes)
+    subset_df = selected_df.groupby(['dataset', 'outcome']).head(viz_episodes)
     for idx, row in subset_df.iterrows():
         if args.birthxs is not None: # HACK!!!!
             continue
@@ -152,6 +167,7 @@ def post_eval(model_dir, use_datasets, n_episodes_home, n_episodes_other, viz_ep
                                               dataset=row['dataset'],
                                               animate=True,
                                               fprefix=fprefix,
+                                              diffusionx=args.diffusionx,
                                               outprefix=OUTPREFIX,
                                              )    
 
@@ -196,6 +212,7 @@ def post_eval(model_dir, use_datasets, n_episodes_home, n_episodes_other, viz_ep
                 continue
 
             sparse_subset_df = sparse_selected_df.groupby(['dataset', 'outcome']).sample(viz_episodes)
+            # sparse_subset_df = sparse_selected_df.query("outcome == 'OOB'").sample(viz_episodes)
             for idx, row in sparse_subset_df.iterrows():
                 ep_activity = log_analysis.get_activity(row['log'], 
                     is_recurrent, 
@@ -223,6 +240,7 @@ def post_eval(model_dir, use_datasets, n_episodes_home, n_episodes_other, viz_ep
                                                       fprefix=fprefix,
                                                       outprefix=OUTPREFIX,
                                                       birthx=float(birthx),
+                                                      diffusionx=args.diffusionx,
                                                      )    
 
                     log_analysis.animate_activity_1episode(ep_activity, 
@@ -257,6 +275,7 @@ if __name__ == "__main__":
     parser.add_argument('--viz_episodes', type=int, default=2)
     parser.add_argument('--walking', type=bool, default=False)
     parser.add_argument('--birthxs', type=str, nargs='+', default=None)
+    parser.add_argument('--diffusionx',  type=float, default=1.0)
 
     args = parser.parse_args()
     print(args)

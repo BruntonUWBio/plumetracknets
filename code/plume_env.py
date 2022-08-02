@@ -53,6 +53,8 @@ class PlumeEnvironment(gym.Env):
     walk_move=0.05, # m/s (x100 for cm/s)
     walk_turn=1.0*np.pi, # radians/sec
     radiusx=1.0, 
+    diffusion_min=1.00, 
+    diffusion_max=1.00, 
     action_feedback=False,
     flipping=False, # Generalization/reduce training data bias
     odor_scaling=False, # Generalization/reduce training data bias
@@ -105,6 +107,8 @@ class PlumeEnvironment(gym.Env):
     self.radiusx = radiusx
     self.birthx = birthx
     self.birthx_max = birthx_max
+    self.diffusion_max = diffusion_max # Puff diffusion multiplier (initial)
+    self.diffusion_min = diffusion_min # Puff diffusion multiplier (reset-time)
     self.t_val_min = t_val_min
     self.episode_steps_max = sim_steps_max # Short training episodes to gather rewards
     self.t_val_max = self.t_val_min + self.reset_offset_tmax + 1.0*self.episode_steps_max/self.fps + 1.00
@@ -204,6 +208,7 @@ class PlumeEnvironment(gym.Env):
         t_val_max=self.t_val_max,
         env_dt=self.dt,
         puff_sparsity=np.clip(self.birthx_max, a_min=0.01, a_max=1.00),
+        diffusion_multiplier=self.diffusion_max,
         radius_multiplier=self.radiusx,
         )
     if self.walking:
@@ -365,6 +370,18 @@ class PlumeEnvironment(gym.Env):
         agent_angle = np.array([np.cos(self.fixed_angle), np.sin(self.fixed_angle)]) # Sin and Cos of angle of orientation
     return agent_angle
 
+  def diffusion_adjust(self, diffx):
+    min_radius = 0.01
+    self.data_puffs.loc[:,'radius'] -= min_radius # subtract initial radius
+    self.data_puffs.loc[:,'radius'] *= diffx/self.diffusion_max  # adjust 
+    self.data_puffs.loc[:,'radius'] += min_radius # add back initial radius
+    # Fix other columns
+    self.data_puffs['x_minus_radius'] = self.data_puffs.x - self.data_puffs.radius
+    self.data_puffs['x_plus_radius'] = self.data_puffs.x + self.data_puffs.radius
+    self.data_puffs['y_minus_radius'] = self.data_puffs.y - self.data_puffs.radius
+    self.data_puffs['y_plus_radius'] = self.data_puffs.y + self.data_puffs.radius
+    self.data_puffs['concentration'] = (min_radius/self.data_puffs.radius)**3
+
   def reset(self):
     """
     return Gym.Observation
@@ -389,6 +406,10 @@ class PlumeEnvironment(gym.Env):
         drop_idxs = self.data_puffs['puff_number'].unique()
         drop_idxs = pd.Series(drop_idxs).sample(frac=(1.00-puff_sparsity))
         self.data_puffs = self.data_puffs.query("puff_number not in @drop_idxs") # No deep copy being made
+
+    if self.diffusion_min < (self.diffusion_max - 0.01):
+        diffx = np.random.uniform(low=self.diffusion_min, high=self.diffusion_max)
+        self.diffusion_adjust(diffx)
 
     # Generalization: Randomly flip plume data across x_axis
     if self.flipping:

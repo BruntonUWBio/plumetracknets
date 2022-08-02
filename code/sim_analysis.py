@@ -162,6 +162,7 @@ def load_plume(
     env_dt=0.04,
     puff_sparsity=1.00,
     radius_multiplier=1.00,
+    diffusion_multiplier=1.00,
     data_dir=config.datadir,
     ):
     print(dataset)
@@ -202,10 +203,19 @@ def load_plume(
 
     # Multiply radius 
     if radius_multiplier != 1.0:
+        print("Applying radius_multiplier", radius_multiplier)
         data_puffs.loc[:,'radius'] *= radius_multiplier
 
-    # Add other columns
     min_radius = 0.01
+
+    # Adjust diffusion rate
+    if diffusion_multiplier != 1.0:
+        print("Applying diffusion_multiplier", diffusion_multiplier)
+        data_puffs.loc[:,'radius'] -= min_radius # subtract initial radius
+        data_puffs.loc[:,'radius'] *= diffusion_multiplier # adjust 
+        data_puffs.loc[:,'radius'] += min_radius # add back initial radius
+
+    # Add other columns
     data_puffs['x_minus_radius'] = data_puffs.x - data_puffs.radius
     data_puffs['x_plus_radius'] = data_puffs.x + data_puffs.radius
     data_puffs['y_minus_radius'] = data_puffs.y - data_puffs.radius

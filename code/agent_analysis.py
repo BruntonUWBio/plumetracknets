@@ -95,7 +95,7 @@ def evaluate_agent(agent,
 ## Behavior Analysis ##
 def visualize_single_episode(data_puffs, data_wind, traj_df, 
     episode_idx, zoom=1, t_val=None, title_text=None, output_fname=None, 
-    show=True, colorby=None, vmin=0, vmax=1, plotsize=None, xlims=None, ylims=None):
+    show=True, colorby=None, vmin=0, vmax=1, plotsize=None, xlims=None, ylims=None, legend=True):
     scatter_size = 15
     plotsize = (8,8) if plotsize is None else plotsize
 
@@ -193,12 +193,17 @@ def visualize_single_episode(data_puffs, data_wind, traj_df,
     # plt.xlabel('')
     # plt.ylabel('')
 
-    handles, labels = plt.gca().get_legend_handles_labels()
-    patch1 = mpatches.Patch(color=config.traj_colormap['off'], label='Off plume')   
-    patch2 = mpatches.Patch(color=config.traj_colormap['on'], label='On plume')   
-    handles.extend([patch1, patch2])
-    # plt.legend(handles=handles, loc='upper left')
-    plt.legend(handles=handles, loc='lower right')
+    if legend:
+        handles, labels = plt.gca().get_legend_handles_labels()
+        patch1 = mpatches.Patch(color=config.traj_colormap['off'], label='Off plume')   
+        patch2 = mpatches.Patch(color=config.traj_colormap['on'], label='On plume')   
+        handles.extend([patch1, patch2])
+        # plt.legend(handles=handles, loc='upper left')
+        # plt.legend(handles=handles, loc='lower right')
+        leg = plt.legend(handles=handles, loc='upper right')
+        # https://stackoverflow.com/questions/12848808/set-legend-symbol-opacity-with-matplotlib
+        for lh in leg.legendHandles: 
+            lh.set_alpha(1)
 
     if output_fname is not None:
         plt.savefig(output_fname, bbox_inches='tight')
@@ -208,7 +213,8 @@ def visualize_single_episode(data_puffs, data_wind, traj_df,
 def animate_single_episode(
     data_puffs, data_wind, traj_df, 
     t_vals, t_vals_all,
-    episode_idx, outprefix, fprefix, zoom, colorby=None, plotsize=None):
+    episode_idx, outprefix, fprefix, zoom, 
+    colorby=None, plotsize=None, legend=True):
     
     n_tvals = len(t_vals) 
     if n_tvals == 0:
@@ -242,7 +248,9 @@ def animate_single_episode(
             output_fname=output_fname,
             show=False,
             colorby=None,
-            plotsize=plotsize)
+            plotsize=plotsize,
+            legend=legend,
+            )
         
     if skipped_frames > 0:
         print(f"Skipped {skipped_frames} out of {n_tvals} frames!")
@@ -273,10 +281,13 @@ def visualize_episodes(episode_logs,
                        fprefix='trajectory',
                        dataset='constant',
                        birthx=1.0,
+                       diffusionx=1.0,
                        episode_idxs=None,
                        colorby=None,
                        vmin=0, vmax=1,
-                       plotsize=None):
+                       plotsize=None,
+                       legend=True,
+                       ):
 
     # Trim/preprocess loaded dataset!
     t_starts = []
@@ -292,6 +303,7 @@ def visualize_episodes(episode_logs,
         t_val_min=min(t_starts)-1.0, 
         t_val_max=max(t_ends)+1.0,
         radius_multiplier=radiusx,
+        diffusion_multiplier=diffusionx,
         puff_sparsity=np.clip(birthx, a_min=0.01, a_max=1.00),
         )
     t_vals_all = data_puffs_all['time'].unique()
@@ -301,6 +313,7 @@ def visualize_episodes(episode_logs,
     if episode_idxs is None:
         episode_idxs = [i for i in range(n_episodes)]
 
+    figs, axs = [], []
     for episode_idx in range(n_episodes): 
         episode_idx_title = episode_idxs[episode_idx] # Hack to take in custom idxs
         ep_log = episode_logs[episode_idx]
@@ -358,12 +371,17 @@ def visualize_episodes(episode_logs,
         fig, ax = visualize_single_episode(data_puffs, data_wind, 
             traj_df, episode_idx_title, zoom, t_val_end, 
             title_text, output_fname, colorby=colorby,
-            vmin=vmin, vmax=vmax, plotsize=plotsize, xlims=xlims, ylims=ylims)
+            vmin=vmin, vmax=vmax, plotsize=plotsize, 
+            xlims=xlims, ylims=ylims, legend=legend)
+        figs.append(fig)
+        axs.append(ax)
 
         if animate:
             animate_single_episode(data_puffs, data_wind, traj_df, 
                 t_vals, t_vals_all, episode_idx_title, outprefix, 
-                fprefix, zoom, colorby=colorby, plotsize=plotsize) 
+                fprefix, zoom, colorby=colorby, plotsize=plotsize, legend=legend) 
+
+    return figs, axs
 
 def visualize_episodes_metadata(episode_logs, zoom=1, outprefix=None):
     n_episodes = len(episode_logs)

@@ -304,12 +304,14 @@ def eval_loop(args, actor_critic, test_sparsity=True):
                                           dataset=args.dataset,
                                           animate=False, # Quick plot
                                           fprefix=args.dataset,
+                                          diffusionx=args.diffusionx,
                                           outprefix=OUTPREFIX
                                          )
         # agent_analysis.visualize_episodes(episode_logs[:args.viz_episodes], 
         #                                   zoom=zoom, 
         #                                   dataset=args.dataset,
         #                                   animate=True,
+        #                                   diffusionx=args.diffusionx,
         #                                   fprefix=args.dataset,
         #                                   outprefix=OUTPREFIX
         #                                  )
@@ -377,6 +379,7 @@ def eval_loop(args, actor_critic, test_sparsity=True):
                     animate=False,
                     fprefix=f'sparse_{args.dataset}_{birthx}', 
                     outprefix=OUTPREFIX,
+                    diffusionx=args.diffusionx,
                     birthx=birthx,
                     )
                 # agent_analysis.visualize_episodes(episode_logs[:args.viz_episodes], 
@@ -385,6 +388,7 @@ def eval_loop(args, actor_critic, test_sparsity=True):
                 #     animate=True,
                 #     fprefix=f'sparse_{args.dataset}_{birthx}', 
                 #     outprefix=OUTPREFIX,
+                #     diffusionx=args.diffusionx,
                 #     birthx=birthx,
                 #     )
 
@@ -428,6 +432,10 @@ if __name__ == "__main__":
     parser.add_argument('--fixed_eval', action='store_true', default=False)
     parser.add_argument('--test_sparsity', action='store_true', default=False)
 
+    # env related
+    parser.add_argument('--diffusionx',  type=float, default=1.0)
+
+
     args = parser.parse_args()
     print(args)
     args.det = True # override
@@ -452,6 +460,9 @@ if __name__ == "__main__":
     args.r_shaping = ['step'] # redundant
     args.rewardx = 1.0
     args.squash_action = True
+
+    args.diffusion_min = args.diffusionx
+    args.diffusion_max = args.diffusionx
 
     args.flipping = False
     args.odor_scaling = False

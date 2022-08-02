@@ -2,6 +2,7 @@ import os
 import sys
 import glob
 import numpy as np
+import matplotlib
 
 import socket
 MACHINE = socket.gethostname().lower()
@@ -14,9 +15,9 @@ if (MACHINE == 'salarian') or (MACHINE == 'cylon'):
 seed_global = 137
 
 traj_colormap = { 
-	'on': 'lime',
+	# 'on': 'lime',
 	# 'on': 'darkgreen',
-	# 'on': 'seagreen',
+	'on': 'seagreen',
 	# 'on': 'mediumseagreen',
 	# 'on': 'royalblue',
 	# 'on': 'dodgerblue',
@@ -47,6 +48,18 @@ outcome_colormap = {'HOME': 'g',
 				    'OOT':'b'}
 
 ttcs_colormap = {'HOME': 'b', 'OOB':'darkorange'}
+
+
+plume_color = matplotlib.colors.to_rgba('gray')
+# from sim_analysis.py
+# rgba_colors[:,0:3] = matplotlib.colors.to_rgba('gray')[:3] # decent
+# rgba_colors[:,0:3] = matplotlib.colors.to_rgba('darkgray')[:3] # decent
+# rgba_colors[:,0:3] = matplotlib.colors.to_rgba('dimgray')[:3] # decent
+# rgba_colors[:,0:3] = matplotlib.colors.to_rgba('darkslategray')[:3] # too dark
+# rgba_colors[:,0:3] = matplotlib.colors.to_rgba('lightsteelblue')[:3] # ok
+# rgba_colors[:,0:3] = matplotlib.colors.to_rgba('red')[:3] 
+# rgba_colors[:,0:3] = matplotlib.colors.to_rgba('lightskyblue')[:3] 
+
 
 
 # mwidth, mheight = 5.5, 9 # Manuscript usable dimensions for NeurIPS/ICLR
