@@ -5,7 +5,6 @@ matplotlib
 seaborn
 spyder
 gym
-stable_baselines
 stable_baselines3
 moviepy
 mpi4py
@@ -17,11 +16,6 @@ natsort
 mpl_scatter_density
 setproctitle
 statsmodels
-array2gif
 torch
-tensorflow==1.14.0
-tensorboard==2.1.1
-tensorboardX==2.1
 imageio==2.6.0
 imageio-ffmpeg==0.4.2
-tensorflow[contrib]
