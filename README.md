@@ -1,20 +1,24 @@
-# Online supplement for manuscript
-[Preprint: "Emergent behavior and neural dynamics in artificial agents tracking turbulent plumes"](https://arxiv.org/abs/2109.12434)
+# Online supplement for published manuscript
+[Emergent behaviour and neural dynamics in artificial agents tracking odour plumes (Nature Machine Intelligence. 2023 Jan)](https://www.nature.com/articles/s42256-022-00599-w)
 Authors: Satpreet H. Singh, Floris van Breugel, Rajesh P. N. Rao, Bingni Wen Brunton
-Contact: satsingh@uw.edu 
-
+Contact: satsingh@uw.edu OR satpreetsingh@gmail.com
 
 BibTeX:
 ```
-@misc{singh2021emergent,
-      title={Emergent behavior and neural dynamics in artificial agents tracking turbulent plumes}, 
-      author={Satpreet H. Singh and Floris van Breugel and Rajesh P. N. Rao and Bingni Wen Brunton},
-      year={2021},
-      eprint={2109.12434},
-      archivePrefix={arXiv},
-      primaryClass={q-bio.NC}
+@article{singh2023emergent,
+  title={Emergent behaviour and neural dynamics in artificial agents tracking odour plumes},
+  author={Singh, Satpreet H and van Breugel, Floris and Rao, Rajesh PN and Brunton, Bingni W},
+  journal={Nature Machine Intelligence},
+  volume={5},
+  number={1},
+  pages={58--70},
+  year={2023},
+  publisher={Nature Publishing Group UK London}
 }
 ```
+
+![](nmi_cover.png)
+
 
 ## Animations: Trajectory + neural state
 All animations, including failure cases and all 5 Vanilla RNN (VRNN) seeds:
@@ -64,3 +68,16 @@ System requirements:
 
 Invited Talk at [Montreal AI-Neuroscience Conference 2021 (Nov 2021)](https://twitter.com/tweetsatpreet/status/1462948984545169408) on this work (Direct [Youtube link](https://www.youtube.com/watch?v=uaLRWADUXb8)):
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Check out <a href="https://twitter.com/bingbrunton?ref_src=twsrc%5Etfw">@bingbrunton</a>&#39;s upcoming talk at MAIN 2021 on our recently released preprint:<a href="https://t.co/7fkIuXiRkt">https://t.co/7fkIuXiRkt</a> <a href="https://t.co/eOkylFSltP">https://t.co/eOkylFSltP</a></p>&mdash; Satpreet Singh (@tweetsatpreet) <a href="https://twitter.com/tweetsatpreet/status/1462948984545169408?ref_src=twsrc%5Etfw">November 23, 2021</a></blockquote> 
+
+Also presented at:
+* [RLDM 2022](https://rldm.org)
+* [CoSyNe 2022](https://www.cosyne.org/poster-session-3)
+* [NAISys 2020](https://meetings.cshl.edu/abstracts.aspx?meet=naisys&year=20) 
+* [IROS 2020 Robot Inspired Biology Workshop](http://gravishlab.ucsd.edu/iros2020/)
+* [ALIFE Conference 2020](https://direct.mit.edu/isal/proceedings/isal2020/32/750/98465) 
+
+[Preprint: "Emergent behavior and neural dynamics in artificial agents tracking turbulent plumes"](https://arxiv.org/abs/2109.12434)
+
+## FAQs/Clarifications
+* The statement in the paper "we did not find any fixed points in our RNNs" assumes that the FP analysis was done at points on the "operating manifold" (i.e. the approximate manifold defined by neural activity from many agent trajectories under diverse initial conditions.) This seems to be a standard assumption in the FP analysis literature. Otherwise, there are fixed points to be found in any high-dimensional trained RNN that are well outside it's "operating manifold".
+
