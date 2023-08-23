@@ -102,9 +102,13 @@ import numpy as np
 from pprint import pprint
 import glob
 import sys
-sys.path.append('/home/satsingh/plume/plume2/')
-from plume_env import PlumeEnvironment, PlumeFrameStackEnvironment
-import agents
+sys.path.append('/src/smartFlies/code/')
+try:
+    from plume_env import PlumeEnvironment, PlumeFrameStackEnvironment
+except:
+    print(sys.path, flush=True)
+    raise Exception("Import error") 
+# import agents
 import agent_analysis
 import os
 import log_analysis
