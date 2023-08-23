@@ -33,8 +33,9 @@ import sys
 sys.path.append('../')
 # from plume_env import PlumeEnvironment, PlumeFrameStackEnvironment
 import config
-import agents
-import agent_analysis
+# not used and not in requirements.txt
+# import agents
+# import agent_analysis
 import os
 import sklearn
 import sklearn.decomposition as skld

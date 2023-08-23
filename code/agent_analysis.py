@@ -12,7 +12,6 @@ import matplotlib.lines as mlines
 import matplotlib.patches as mpatches
 from matplotlib.collections import PatchCollection
 
-import agents
 import sim_analysis
 import config
 
