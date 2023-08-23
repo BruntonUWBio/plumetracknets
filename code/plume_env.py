@@ -3,14 +3,15 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 
 import os
 import sys
-
 import pandas as pd
 import numpy as np
-import gym
-from gym import spaces
+# import gym
+# from gym import spaces
+import gymnasium as gym
+from gymnasium.spaces import Box
 
 import sim_analysis
-import tqdm
+# import tqdm # not used
 from pprint import pprint
 
 import config
@@ -67,7 +68,7 @@ class PlumeEnvironment(gym.Env):
 
     assert dynamic is False
     np.random.seed(seed)    
-    
+    self.seed = seed
     self.arguments = locals()
     print("PlumeEnvironment:", self.arguments)
     
@@ -177,21 +178,24 @@ class PlumeEnvironment(gym.Env):
     # Actions:
     # Move [0, 1], with 0.0 = no movement
     # Turn [0, 1], with 0.5 = no turn... maybe change to [-1, 1]
-    self.action_space = spaces.Box(low=0, high=+1,
+    self.action_space = Box(low=0, high=+1,
                                         shape=(2,), dtype=np.float32)
     if self.rescale:
         ## Rescaled to [-1,+1] to follow best-practices: 
         # https://stable-baselines.readthedocs.io/en/master/guide/rl_tips.html#tips-and-tricks-when-creating-a-custom-environment
         # Both will first clip to [-1,+1] then map to [0,1] with all other code remaining same
-        self.action_space = spaces.Box(low=-1, high=+1,
+        self.action_space = Box(low=-1, high=+1,
                                         shape=(2,), dtype=np.float32)
 
     # Observations
     # Wind velocity [-1, 1] * 2, Odor concentration [0, 1]
     obs_dim = 3 if not self.action_feedback else 3+2
-    self.observation_space = spaces.Box(low=-1, high=+1,
+    self.observation_space = Box(low=-1, high=+1,
                                         shape=(obs_dim,), dtype=np.float32)
 
+    # debug said shape = (3,)
+    print(f"self.action_space = {self.action_space}", flush=True, file=sys.stderr)
+    print(f"self.observation_space = {self.observation_space}", flush=True, file=sys.stderr)
     ######## Experimental "walking mode" ########
     if self.walking:
         self.turn_capacity = walk_turn 
@@ -522,7 +526,7 @@ class PlumeEnvironment(gym.Env):
     	turn_action = 1 - turn_action
 
     # Turn/Update orientation and move to new location 
-    old_angle_radians = np.angle( self.agent_angle[0] + 1j*self.agent_angle[1], deg=False )
+    old_angle_radians = np.angle(self.agent_angle[0] + 1j*self.agent_angle[1], deg=False)
     new_angle_radians = old_angle_radians + self.turn_capacity*self.turnx*(turn_action - 0.5)*self.dt # in radians
     self.agent_angle = [ np.cos(new_angle_radians), np.sin(new_angle_radians) ]    
     assert np.linalg.norm(self.agent_angle) < 1.1
@@ -679,8 +683,9 @@ class PlumeEnvironment(gym.Env):
 
     if self.flipping and self.flipx < 0:
     	observation[1] *= -1.0 # observation: [x, y, o] 
-
+     
     self.episode_reward += reward
+    
     if done:
         info['episode'] = {'r': self.episode_reward }
 
@@ -770,7 +775,7 @@ class PlumeFrameStackEnvironment(gym.Env):
             self.historyobs = np.zeros(wrapped_obs_space.shape[0] * (1+2**(self.n_stack-1)), wrapped_obs_space.dtype) # Full history
         # print(self.historyobs.shape, self.stackedobs.shape)
 
-        self.observation_space = spaces.Box(low=low, high=high, dtype=venv.observation_space.dtype)
+        self.observation_space = Box(low=low, high=high, dtype=venv.observation_space.dtype)
         self.action_space = self.venv.action_space
 
     def step(self, action):

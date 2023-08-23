@@ -1,8 +1,8 @@
 import os
-import gym
 import numpy as np
 import torch
-from gym.spaces.box import Box
+import gymnasium as gym
+from gymnasium.spaces import Box
 
 from stable_baselines3.common.monitor import Monitor
 from stable_baselines3.common.vec_env import VecEnvWrapper, DummyVecEnv, SubprocVecEnv
@@ -16,7 +16,7 @@ sys.path.append('../../')
 import importlib
 
 def make_env(env_id, seed, rank, log_dir, allow_early_resets, args=None):
-
+    # both seed info is redundant... seed args and provided separately
     if args.dynamic:
         import plume_env_dynamic as plume_env
         # from plume_env_dynamic import PlumeEnvironment, PlumeFrameStackEnvironment
@@ -31,6 +31,7 @@ def make_env(env_id, seed, rank, log_dir, allow_early_resets, args=None):
     def _thunk():
         if 'plume' in env_id:
             if args.recurrent_policy or (args.stacking == 0):
+                print("Using PlumeEnvironment...", flush=True, file=sys.stdout)
                 env = plume_env.PlumeEnvironment(
                     dataset=args.dataset,
                     turnx=args.turnx,
@@ -56,9 +57,10 @@ def make_env(env_id, seed, rank, log_dir, allow_early_resets, args=None):
                     stray_max=args.stray_max,
                     obs_noise=args.obs_noise,
                     act_noise=args.act_noise,
-                    seed=args.seed,
+                    seed=args.seed+rank,  # set correct seed here
                     )
             else:
+                print("Using PlumeFrameStackEnvironment...", flush=True, file=sys.stdout)
                 env = plume_env.PlumeFrameStackEnvironment(
                     n_stack=args.stacking,
                     masking=args.masking,
@@ -87,12 +89,14 @@ def make_env(env_id, seed, rank, log_dir, allow_early_resets, args=None):
                     stray_max=args.stray_max,
                     obs_noise=args.obs_noise,
                     act_noise=args.act_noise,
-                    seed=args.seed,
+                    seed=args.seed+rank,
                     )
         else:
             env = gym.make(env_id)
+        
 
-        env.seed(seed + rank)
+        # env.seed(seed + rank) # this was never going to work. Seed not initialized
+        
 
         if str(env.__class__.__name__).find('TimeLimit') >= 0:
             env = TimeLimitMask(env)
@@ -132,11 +136,12 @@ def make_vec_envs(env_name,
         envs = DummyVecEnv(envs)
 
     if len(envs.observation_space.shape) == 1:
+        print(f"type(envs.action_space) = {type(envs.action_space)}", flush=True, file=sys.stdout)
         if gamma is None:
             envs = VecNormalize(envs, ret=False)
         else:
-            envs = VecNormalize(envs, gamma=gamma)
-
+            envs = VecNormalize(envs, gamma=gamma) # type(envs.action_space) = <class 'gym.spaces.box.Box'>
+        
     envs = VecPyTorch(envs, device)
 
     if num_frame_stack is not None:
@@ -227,7 +232,6 @@ class VecNormalize(VecNormalize_):
     def __init__(self, *args, **kwargs):
         super(VecNormalize, self).__init__(*args, **kwargs)
         self.training = True
-
     def _obfilt(self, obs, update=True):
         if self.ob_rms:
             if self.training and update:
@@ -238,10 +242,8 @@ class VecNormalize(VecNormalize_):
             return obs
         else:
             return obs
-
     def train(self):
         self.training = True
-
     def eval(self):
         self.training = False
 
@@ -264,7 +266,7 @@ class VecPyTorchFrameStack(VecEnvWrapper):
         self.stacked_obs = torch.zeros((venv.num_envs, ) +
                                        low.shape).to(device)
 
-        observation_space = gym.spaces.Box(
+        observation_space = Box(
             low=low, high=high, dtype=venv.observation_space.dtype)
         VecEnvWrapper.__init__(self, venv, observation_space=observation_space)
 
