@@ -1,8 +1,10 @@
 import os
 import numpy as np
 import torch
-import gymnasium as gym
-from gymnasium.spaces import Box
+import gym
+from gym.spaces.box import Box
+# import gymnasium as gym
+# from gymnasium.spaces import Box
 
 from stable_baselines3.common.monitor import Monitor
 from stable_baselines3.common.vec_env import VecEnvWrapper, DummyVecEnv, SubprocVecEnv
@@ -95,7 +97,7 @@ def make_env(env_id, seed, rank, log_dir, allow_early_resets, args=None):
             env = gym.make(env_id)
         
 
-        # env.seed(seed + rank) # this was never going to work. Seed not initialized
+        env.seed(seed + rank) # this was never going to work. Seed not initialized
         
 
         if str(env.__class__.__name__).find('TimeLimit') >= 0:
@@ -136,7 +138,6 @@ def make_vec_envs(env_name,
         envs = DummyVecEnv(envs)
 
     if len(envs.observation_space.shape) == 1:
-        print(f"type(envs.action_space) = {type(envs.action_space)}", flush=True, file=sys.stdout)
         if gamma is None:
             envs = VecNormalize(envs, ret=False)
         else:
@@ -190,7 +191,7 @@ class TransposeImage(TransposeObs):
         assert len(op) == 3, "Error: Operation, " + str(op) + ", must be dim3"
         self.op = op
         obs_shape = self.observation_space.shape
-        self.observation_space = Box(
+        self.observation_space = spaces.Box(
             self.observation_space.low[0, 0, 0],
             self.observation_space.high[0, 0, 0], [
                 obs_shape[self.op[0]], obs_shape[self.op[1]],
@@ -266,7 +267,7 @@ class VecPyTorchFrameStack(VecEnvWrapper):
         self.stacked_obs = torch.zeros((venv.num_envs, ) +
                                        low.shape).to(device)
 
-        observation_space = Box(
+        observation_space = spaces.Box(
             low=low, high=high, dtype=venv.observation_space.dtype)
         VecEnvWrapper.__init__(self, venv, observation_space=observation_space)
 
