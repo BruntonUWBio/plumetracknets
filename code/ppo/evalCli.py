@@ -133,6 +133,8 @@ def evaluate_agent(actor_critic, env, args):
         venv.time_algo = 'fixed' 
         
         grids = []
+        # Initializing the agent 
+        # x coordinate is fixed at venv.fixed_x
         for venv.fixed_x in [4.0, 6.0, 8.0]:
           for venv.fixed_time_offset in [0.0, 1.0]: # time_offset
             env.reset()
@@ -145,11 +147,13 @@ def evaluate_agent(actor_critic, env, args):
             y_min, y_max = Yqs[0], Yqs[1]
 
             y_stray = 0.5
+            # y coordinate depends on the dataset
             if ('switch' in args.dataset) or ('noisy' in args.dataset):
                 y = np.linspace(y_min, y_max, 5) # Don't start outside plume
             else: 
                 y = np.linspace(y_min, y_max, 3) # Can start off plume 
                 y = np.concatenate([ [y_min - y_stray], y, [y_max + y_stray] ]) # 5 now
+            # face direction of the agent 
             a = np.linspace(0, 2, 9)[:8]*np.pi # angle
 
             # print(f"At {venv.t_val}s: y_min {y_min}, y_max {y_max}; Grid: {y}")
@@ -166,6 +170,7 @@ def evaluate_agent(actor_critic, env, args):
 
         grid = pd.concat(grids).to_numpy() # Stack
         args.test_episodes = grid.shape[0]
+        # TODO see what the grid looks like and why is it called a grid???
         print(f"Using fixed evaluation sequence [time, angle, loc_y]... ({args.test_episodes} episodes) ")
 
 
@@ -208,7 +213,9 @@ def evaluate_agent(actor_critic, env, args):
             _info = info[0] 
             _action = action.detach().numpy().squeeze()
             _done = done
-
+            # TODO: fact check this. where does it show whether an agent found the plume?
+            # only +100 if agent achieved its goal
+            # print(f'[debug]')
             _reward = (_reward + 100) if _reward > 9 else _reward # HACK! Unsure/Debug!
             reward_sum += _reward
 
@@ -282,6 +289,7 @@ def eval_loop(args, actor_critic, test_sparsity=True):
             allow_early_resets=False)
 
         if 'switch' in args.dataset: 
+            print('[Debug] switch in args.dataset', file=sys.stderr, flush=True)
             venv = env.unwrapped.envs[0].venv
             venv.qvar = 0.0
             venv.t_val_min = 58.0
@@ -344,6 +352,7 @@ def eval_loop(args, actor_critic, test_sparsity=True):
 
     #### ------- Sparse ------- #### 
     if test_sparsity:
+        # TODO: redundency... what's the point of this if set to be 1 later
         for birthx in [0.8, 0.6, 0.4, 0.2]:
             print("Sparse/birthx:", birthx)
             try:
