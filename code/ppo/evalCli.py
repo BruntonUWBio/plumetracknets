@@ -213,7 +213,11 @@ def evaluate_agent(actor_critic, env, args):
             _info = info[0] 
             _action = action.detach().numpy().squeeze()
             _done = done
-            # TODO: fact check this. where does it show whether an agent found the plume?
+            # TODO: fact check this. where does it show whether an agent found the plume? 
+        #         done_reason = "HOME" if is_home else \
+                    # "OOB" if is_outofbounds else \
+                    # "OOT" if is_outoftime else \
+                    # "NA" 
             # only +100 if agent achieved its goal
             # print(f'[debug]')
             _reward = (_reward + 100) if _reward > 9 else _reward # HACK! Unsure/Debug!
