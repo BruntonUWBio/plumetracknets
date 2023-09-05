@@ -68,7 +68,6 @@ class PlumeEnvironment(gym.Env):
 
     assert dynamic is False
     np.random.seed(seed)    
-    self.seed = seed
     self.arguments = locals()
     print("PlumeEnvironment:", self.arguments)
     
