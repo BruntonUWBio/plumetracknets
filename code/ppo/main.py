@@ -586,13 +586,14 @@ def main():
     args.model_fname = fname
 
     # Evaluation
+    # these datasets are not mentioned in the manuscript
     print("Starting evaluation")
-    datasets = ['switch15x5b5', 
-                'switch30x5b5', 
-                'switch45x5b5', 
+    datasets = ['switch45x5b5', 
+                # 'switch15x5b5', 
+                # 'switch30x5b5', 
                 'constantx5b5', 
-                'noisy3x5b5', 
-                'noisy6x5b5']
+                # 'noisy6x5b5', 
+                'noisy3x5b5']
     # if args.dataset not in datasets:
     #     datasets.append(args.dataset)
     #     datasets.reverse() # Do training data test first
