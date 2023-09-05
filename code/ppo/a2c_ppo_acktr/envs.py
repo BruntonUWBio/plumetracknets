@@ -59,7 +59,7 @@ def make_env(env_id, seed, rank, log_dir, allow_early_resets, args=None):
                     stray_max=args.stray_max,
                     obs_noise=args.obs_noise,
                     act_noise=args.act_noise,
-                    seed=args.seed+rank,  # set correct seed here
+                    seed=args.seed, 
                     )
             else:
                 print("Using PlumeFrameStackEnvironment...", flush=True, file=sys.stdout)
@@ -91,13 +91,13 @@ def make_env(env_id, seed, rank, log_dir, allow_early_resets, args=None):
                     stray_max=args.stray_max,
                     obs_noise=args.obs_noise,
                     act_noise=args.act_noise,
-                    seed=args.seed+rank,
+                    seed=args.seed,
                     )
         else:
             env = gym.make(env_id)
         
 
-        env.seed(seed + rank) # this was never going to work. Seed not initialized
+        env.seed(seed + rank) 
         
 
         if str(env.__class__.__name__).find('TimeLimit') >= 0:
