@@ -22,7 +22,6 @@ import argparse
 import os
 import sys
 import numpy as np
-import tqdm
 import pandas as pd
 
 import scipy as sp
@@ -33,10 +32,8 @@ import sys
 sys.path.append('../')
 from plume_env import PlumeEnvironment, PlumeFrameStackEnvironment
 import config
-import agents
 import agent_analysis
 import os
-import sklearn
 import sklearn.decomposition as skld
 
 import importlib
@@ -85,10 +82,10 @@ font = {'family' : 'serif',
 matplotlib.rc('font', **font)
 
 # Interactive vs. CLI
-if not batchmode:
-    get_ipython().run_line_magic('matplotlib', 'inline')
-    # %config InlineBackend.figure_format = 'svg'
-    get_ipython().run_line_magic('config', "InlineBackend.figure_format = 'retina'")
+# if not batchmode:
+#     get_ipython().run_line_magic('matplotlib', 'inline')
+#     # %config InlineBackend.figure_format = 'svg'
+#     get_ipython().run_line_magic('config', "InlineBackend.figure_format = 'retina'")
 if batchmode:
     matplotlib.use("Agg")
     
@@ -1230,7 +1227,7 @@ ttcs_df.to_pickle(f"{outdir}/ttcs_swarm_{model_seed}.pkl")
 # In[47]:
 
 
-get_ipython().run_line_magic('config', "InlineBackend.figure_format = 'retina'")
+# get_ipython().run_line_magic('config', "InlineBackend.figure_format = 'retina'")
 mpl.rcParams['figure.dpi'] = 300
 
 

@@ -22,7 +22,7 @@ import argparse
 import os
 import sys
 import numpy as np
-import tqdm
+# import tqdm
 import pandas as pd
 
 import scipy as sp
@@ -33,10 +33,8 @@ import sys
 sys.path.append('../')
 from plume_env import PlumeEnvironment, PlumeFrameStackEnvironment
 import config
-import agents
 import agent_analysis
 import os
-import sklearn
 import sklearn.decomposition as skld
 
 import importlib
@@ -513,9 +511,9 @@ def plot_common_subspace_all(selected_df, colorby):
             clb.set_ticks(column_ticks[colorby])
             clb.set_ticklabels(column_ticklabels[colorby])
 
-        print("Here1")
+        # print("Here1")
         if colorby_prefix in column_to_titlestring.keys():
-            print("Here2")
+            # print("Here2")
             cbar_ax.set_title(column_to_titlestring[colorby_prefix])
 
 
