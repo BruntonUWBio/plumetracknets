@@ -27,21 +27,23 @@ import tqdm
 import pandas as pd
 
 import numpy as np
-from pprint import pprint
+# from pprint import pprint
 import glob
 import sys
 sys.path.append('../')
+
 # from plume_env import PlumeEnvironment, PlumeFrameStackEnvironment
-import config
+# import config
 # not used and not in requirements.txt
 # import agents
 # import agent_analysis
 import os
-import sklearn
-import sklearn.decomposition as skld
+# import sklearn
+# import sklearn.decomposition as skld
 
 import importlib
-import log_analysis
+sys.path.append('/src/smartFlies/code/')
+import log_analysis # custom script. Need to be added  
 importlib.reload(log_analysis)
 
 
