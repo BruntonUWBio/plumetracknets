@@ -17,7 +17,7 @@ LOGFILES=$(find ${BASEDIR} -name "*.pkl")
 MAXJOBS=24
 for LOGFILE in $LOGFILES; do
   while (( $(jobs -p | wc -l) >= $MAXJOBS )); do sleep 1; done
-  python -u log2episodes.py --logfile $LOGFILE >> /dev/null 2>&1 &
+  python3 -u log2episodes.py --logfile $LOGFILE >> /dev/null 2>&1 &
 done
 ````
 
@@ -34,8 +34,8 @@ MAXJOBS=24
 for FNAME in $MODEL_FNAMES; do
  while (( $(jobs -p | wc -l) >= $MAXJOBS )); do sleep 10; done
  MDIR=${FNAME%.pt}/
- python -u report_common_subspace.py --model_fname $FNAME > $MDIR/report_comsub.log 2>&1 &
- python -u report_ttcs.py --model_fname $FNAME > $MDIR/report_ttcs.log 2>&1 &
+ python3 -u report_common_subspace.py --model_fname $FNAME > $MDIR/report_comsub.log 2>&1 &
+ python3 -u report_ttcs.py --model_fname $FNAME > $MDIR/report_ttcs.log 2>&1 &
 done
 tail -f ${BASEDIR}/*VRNN*/report_comsub.log ${BASEDIR}/*VRNN*/report_ttcs.log
 
@@ -50,7 +50,7 @@ MAXJOBS=24
 for FNAME in $MODEL_FNAMES; do
  while (( $(jobs -p | wc -l) >= $MAXJOBS )); do sleep 10; done
  MDIR=${FNAME%.pt}/
- python -u report_regime_dists.py --model_fname $FNAME > $MDIR/report_regime.log 2>&1 &
+ python3 -u report_regime_dists.py --model_fname $FNAME > $MDIR/report_regime.log 2>&1 &
 done
 tail -f ${BASEDIR}/*VRNN*/report_regime.log
 
@@ -64,7 +64,7 @@ MODELDIRS=$(ls -d ${BASEDIR}/*VRNN*/)
 MAXJOBS=24
 for MDIR in $MODELDIRS; do
   while (( $(jobs -p | wc -l) >= $MAXJOBS )); do sleep 10; done
-  python -u report_correlations.py --model_dir $MDIR > $MDIR/report_correlations.log 2>&1 &
+  python3 -u report_correlations.py --model_dir $MDIR > $MDIR/report_correlations.log 2>&1 &
 done
 tail -f ${BASEDIR}/*VRNN*/report_correlations.log
 cat ${BASEDIR}/*VRNN*/report_correlations.log | grep "test data"
@@ -81,7 +81,7 @@ MODELDIRS=$(ls -d ${BASEDIR}/*VRNN*/)
 MAXJOBS=24
 for MDIR in $MODELDIRS; do
   while (( $(jobs -p | wc -l) >= $MAXJOBS )); do sleep 10; done
-  python -u report_arch.py --model_dir $MDIR > $MDIR/report_arch.log 2>&1 &
+  python3 -u report_arch.py --model_dir $MDIR > $MDIR/report_arch.log 2>&1 &
 done
 tail -f ${BASEDIR}/*VRNN*/report_arch.log
 ````
