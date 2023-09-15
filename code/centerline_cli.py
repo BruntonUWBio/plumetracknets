@@ -3,7 +3,7 @@
 python centerline_cli.py --dataset constantx5b5
 
 for DATASET in constantx5b5 switch45x5b5 noisy3x5b5; do
-  python centerline_cli.py --dataset $DATASET &
+  python3 centerline_cli.py --dataset $DATASET &
 done
 """
 
@@ -65,7 +65,7 @@ def get_puffs_df_vector_centerline(wind_df, verbose=True):
         puff_dfs.append( puff_t )
         tidx += 1
         wind_t = wind_df.query("tidx == @tidx").copy(deep=True).reset_index(drop=True)
-        if wind_t.shape[0] is not 1:
+        if wind_t.shape[0] != 1:
             print("Likely numerical error!:", tidx, wind_t)
 
     # Gather data and post-process float format
