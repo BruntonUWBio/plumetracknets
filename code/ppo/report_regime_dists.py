@@ -234,7 +234,7 @@ for idx,row in tqdm.tqdm(selected_df.iterrows()):
     
     traj_dfs.append(traj_df)
     
-traj_df_stacked = pd.concat(traj_dfs)
+traj_df_stacked = pd.concat(traj_dfs, ignore_index=True)
 
 print(traj_df_stacked.shape)
 traj_df_stacked.columns
