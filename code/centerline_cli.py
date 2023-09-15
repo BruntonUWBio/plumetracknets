@@ -11,13 +11,11 @@ done
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
-import sim_utils
 import argparse
 import pandas as pd
 import config
 import numpy as np
 import tqdm
-import log_analysis
 
 def gen_puff_dict_centerline(puff_number, tidx):
     return {
