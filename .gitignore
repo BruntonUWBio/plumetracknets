@@ -134,3 +134,4 @@ dmypy.json
 # ignore result files, and packages for downloading prev data
 data/
 figshare/
+reproduce/

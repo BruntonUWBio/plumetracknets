@@ -112,7 +112,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
-cuda_available = torch.cuda.is_available()
+
 
 import copy
 import glob
@@ -246,6 +246,7 @@ def get_args():
     args = parser.parse_args()
 
     # args.cuda = not args.no_cuda and 
+    cuda_available = torch.cuda.is_available()
     args.cuda = cuda_available
     print("CUDA:", args.cuda)
     assert args.algo in ['a2c', 'ppo']
@@ -606,7 +607,7 @@ def main():
     args.obs_noise = 0.0
     args.act_noise = 0.0
     args.diffusion_max = args.diffusion_min # always test at min diffusion rate
-
+    args.diffusionx = args.diffusion_max # added on 10/01/23. this is the parameter if called .eval_loop directly. diffusion_min/max is not init'd in training. Default is 1, same as eval
     for ds in datasets:
       print(f"Evaluating on dataset: {ds}")
       args.dataset = ds
