@@ -167,10 +167,9 @@ def evaluate_agent(actor_critic, env, args):
             grid['time'] = venv.fixed_time_offset
 
             grids.append(grid)
-
+        # make a DF of starting locations for the agent
         grid = pd.concat(grids).to_numpy() # Stack
         args.test_episodes = grid.shape[0]
-        # TODO see what the grid looks like and why is it called a grid???
         print(f"Using fixed evaluation sequence [time, angle, loc_y]... ({args.test_episodes} episodes) ")
 
 
@@ -220,7 +219,14 @@ def evaluate_agent(actor_critic, env, args):
                     # "NA" 
             # only +100 if agent achieved its goal
             # print(f'[debug]')
+            # if _info['done'] == 'HOME':
+                # _reward += 100
+            if info[0]['done'] != 'HOME':
+                if _reward>9:
+                    print(f"Reward: {_reward}, info: {_info}; WRONG REWARD! Should not have added 100.")
+
             _reward = (_reward + 100) if _reward > 9 else _reward # HACK! Unsure/Debug!
+            
             reward_sum += _reward
 
             if args.squash_action:
