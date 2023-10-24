@@ -165,7 +165,7 @@ def load_plume(
     diffusion_multiplier=1.00,
     data_dir=config.datadir,
     ):
-    print(dataset)
+    print("[load_plume]",dataset)
     puff_filename = f'{data_dir}/puff_data_{dataset}.pickle' 
     wind_filename = f'{data_dir}/wind_data_{dataset}.pickle' 
 
@@ -195,7 +195,7 @@ def load_plume(
 
     # Sparsify puff data (No change in wind)
     if puff_sparsity < 0.99:
-        print(f"Sparsifying puffs to {puff_sparsity}x")
+        print(f"[load_plume] Sparsifying puffs to {puff_sparsity}x")
         puff_sparsity = np.clip(puff_sparsity, 0.0, 1.0)
         drop_idxs = data_puffs['puff_number'].unique()
         drop_idxs = pd.Series(drop_idxs).sample(frac=(1.00-puff_sparsity))

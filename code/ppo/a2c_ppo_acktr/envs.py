@@ -25,6 +25,7 @@ def make_env(env_id, seed, rank, log_dir, allow_early_resets, args=None):
         importlib.reload(plume_env)
         print("Using Dynamic Plume...")
     else:
+        # hard coded to be false in evalCli
         import plume_env
         # from plume_env import PlumeEnvironment, PlumeFrameStackEnvironment
         importlib.reload(plume_env)
@@ -32,6 +33,7 @@ def make_env(env_id, seed, rank, log_dir, allow_early_resets, args=None):
 
     def _thunk():
         if 'plume' in env_id:
+            # hard coded to be plume in evalCli: env_name=plume. Only instance of env_id found so far
             if args.recurrent_policy or (args.stacking == 0):
                 print("Using PlumeEnvironment...", flush=True, file=sys.stdout)
                 env = plume_env.PlumeEnvironment(
@@ -62,6 +64,7 @@ def make_env(env_id, seed, rank, log_dir, allow_early_resets, args=None):
                     seed=args.seed, 
                     )
             else:
+                # Dont ever see this in logs so far
                 print("Using PlumeFrameStackEnvironment...", flush=True, file=sys.stdout)
                 env = plume_env.PlumeFrameStackEnvironment(
                     n_stack=args.stacking,
