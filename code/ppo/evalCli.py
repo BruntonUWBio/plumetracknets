@@ -212,7 +212,6 @@ def evaluate_agent(actor_critic, env, args):
             _info = info[0] 
             _action = action.detach().numpy().squeeze()
             _done = done
-            # TODO: fact check this. where does it show whether an agent found the plume? 
         #         done_reason = "HOME" if is_home else \
                     # "OOB" if is_outofbounds else \
                     # "OOT" if is_outoftime else \
@@ -362,12 +361,11 @@ def eval_loop(args, actor_critic, test_sparsity=True):
 
     #### ------- Sparse ------- #### 
     if test_sparsity:
-        # TODO: redundency... what's the point of this if set to be 1 later
         for birthx in [0.8, 0.6, 0.4, 0.2]:
             print("Sparse/birthx:", birthx)
             try:
-                args.birthx_max = birthx # load time birthx
-                args.birthx = 1.0
+                args.birthx_max = birthx # load time birthx: subsample the plume data at the time of loading 
+                args.birthx = 1.0 # dynamic birthx: subsample by rand.unif.[birthx, 1] at the time of reset at each epoch, on top of the loaded birthx
                 args.loc_algo = 'quantile'
                 args.diff_max = 0.8
                 args.movex = 1
