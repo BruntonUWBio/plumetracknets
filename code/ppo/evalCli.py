@@ -222,7 +222,10 @@ def evaluate_agent(actor_critic, env, args):
                 # _reward += 100
             if info[0]['done'] != 'HOME':
                 if _reward>9:
-                    print(f"Reward: {_reward}, info: {_info}; WRONG REWARD! Should not have added 100.")
+                    print(f"Reward: {_reward}, info: {_info}; WRONG REWARD! Should NOT have added 100.")
+            elif info[0]['done'] == 'HOME':
+                if _reward<=9:
+                    print(f"Reward: {_reward}, info: {_info}; WRONG REWARD! Should HAVE added 100.")
 
             _reward = (_reward + 100) if _reward > 9 else _reward # HACK! Unsure/Debug!
             
@@ -361,7 +364,7 @@ def eval_loop(args, actor_critic, test_sparsity=True):
 
     #### ------- Sparse ------- #### 
     if test_sparsity:
-        for birthx in [0.8, 0.6, 0.4, 0.2]:
+        for birthx in [0.8, 0.6, 0.4, 0.2, 0.1]:
             print("Sparse/birthx:", birthx)
             try:
                 args.birthx_max = birthx # load time birthx: subsample the plume data at the time of loading 
