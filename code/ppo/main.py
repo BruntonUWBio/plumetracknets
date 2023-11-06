@@ -307,6 +307,7 @@ def eval_lite(agent, env, args, device, actor_critic):
 
 def training_loop(agent, envs, args, device, actor_critic, 
     training_log=None, eval_log=None, eval_env=None):
+    # each stage of the training loop gets thrown in this 
     rollouts = RolloutStorage(args.num_steps, args.num_processes,
                           envs.observation_space.shape, envs.action_space,
                           actor_critic.recurrent_hidden_state_size)
@@ -323,7 +324,7 @@ def training_loop(agent, envs, args, device, actor_critic,
 
     start = time.time()
     num_updates = int(
-        args.num_env_steps) // args.num_steps // args.num_processes
+        args.num_env_steps) // args.num_steps // args.num_processes # args.num_env_steps 1M for constant 4M for noisy (found in logs) # args.num_steps=2048 (found in logs) # args.num_processes=4=mini_batch (found in logs)
     for j in range(num_updates):
         # print(f"On update {j} of {num_updates}")
 
@@ -350,6 +351,7 @@ def training_loop(agent, envs, args, device, actor_critic,
             # If done then clean the history of observations.
             masks = torch.FloatTensor(
                 [[0.0] if done_ else [1.0] for done_ in done])
+            # TODO unsure what this is
             bad_masks = torch.FloatTensor(
                 [[0.0] if 'bad_transition' in info.keys() else [1.0]
                  for info in infos])
@@ -398,14 +400,15 @@ def training_loop(agent, envs, args, device, actor_critic,
             total_num_steps = (j + 1) * args.num_processes * args.num_steps
             end = time.time()
             print(
-                "Update {}/{}, T {}, FPS {}, {}-training-episode: mean/median {:.1f}/{:.1f}, min/max {:.1f}/{:.1f}"
+                "Update {}/{}, T {}, FPS {}, {}-training-episode: mean/median {:.1f}/{:.1f}, min/max {:.1f}/{:.1f}, std {:.2f}"
                 .format(j, num_updates, 
                         total_num_steps,
                         int(total_num_steps / (end - start)),
                         len(episode_rewards), np.mean(episode_rewards),
                         np.median(episode_rewards), 
                         np.min(episode_rewards),
-                        np.max(episode_rewards))) 
+                        np.max(episode_rewards),
+                        np.std(episode_rewards))) 
 
             training_log.append({
                     'update': j,
@@ -417,6 +420,7 @@ def training_loop(agent, envs, args, device, actor_critic,
                     'median': np.median(episode_rewards), 
                     'min': np.min(episode_rewards),
                     'max': np.max(episode_rewards),
+                    'std': np.std(episode_rewards),
                 })
 
             # Save training curve
@@ -602,7 +606,7 @@ def main():
     args.dynamic = False
     args.fixed_eval = True if 'fixed' in args.eval_type else False
     args.birthx = 1.0
-    args.birthx_max = 1.0
+    args.birthx_max = 1.0 # the fraction of plume data read in during init
     args.qvar = 0.0 # doesn't matter for fixed
     args.obs_noise = 0.0
     args.act_noise = 0.0
