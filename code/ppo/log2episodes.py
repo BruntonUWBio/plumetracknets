@@ -42,7 +42,7 @@ import os
 # import sklearn.decomposition as skld
 
 import importlib
-sys.path.append('/src/smartFlies/code/')
+# sys.path.append('/src/smartFlies/code/')
 import log_analysis # custom script. Need to be added  
 importlib.reload(log_analysis)
 
