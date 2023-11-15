@@ -214,10 +214,11 @@ def get_args():
     parser.add_argument('--birthx',  type=float, nargs='+', default=[1.0])
     parser.add_argument('--diff_max',  type=float, nargs='+', default=[0.8])
     parser.add_argument('--diff_min',  type=float, nargs='+', default=[0.4])
+    parser.add_argument('--birthx_linear_tc_steps', type=int, default=0) # if on, birthx will linearly decrease over time, reachinig the birthx value gradually
 
     parser.add_argument('--birthx_max',  type=float, default=1.0) # Only used for sparsity
-    parser.add_argument('--dryrun',  type=bool, default=False)
-    parser.add_argument('--curriculum', type=bool, default=False)
+    parser.add_argument('--dryrun',  type=bool, default=False) # not used 
+    parser.add_argument('--curriculum', type=bool, default=False) # not used 
     parser.add_argument('--turnx',  type=float, default=1.0)
     parser.add_argument('--movex',  type=float, default=1.0)
     parser.add_argument('--auto_movex',  type=bool, default=False)
@@ -305,13 +306,57 @@ def eval_lite(agent, env, args, device, actor_critic):
     }
     return eval_record
 
+
+def update_by_schedule(env, schedule_dict, curr_step):
+    for k in schedule_dict.keys():
+        _schedule_dict = schedule_dict[k]
+        # if the current step should be updated 
+        if curr_step in _schedule_dict:
+            env.env_method("update_env_param", {k: _schedule_dict[curr_step]})
+            print(f"update_env_param {k}: {_schedule_dict[curr_step]} at {curr_step}")
+    
+            
+
+def build_tc_schedule_dict(schedule_dict, total_number_trials):
+    """
+    Builds a training curriculum schedule dictionary.
+
+    Args:
+        schedule_dict (dict): A dictionary containing the schedule information. 
+            Each key is an env variable and each value contains (min, max), n_step_bt_minmax.
+        total_number_updates (int): The total number of updates.
+
+    Returns:
+        dict: A dictionary of dicts. Each key is an env variable which contains the schedule information.
+    """
+
+    dict = {}
+    for key, value in schedule_dict.items():
+        subdict = {}
+        tupl_minMax, n_step_bt_minmax = value
+        print("n_step_bt_minmax", n_step_bt_minmax)
+        scheduled_value = np.linspace(tupl_minMax[0], tupl_minMax[1], n_step_bt_minmax)
+        print("scheduled_value", len(scheduled_value))
+        when_2_update = np.linspace(0, total_number_trials, n_step_bt_minmax, endpoint=False, dtype=int)
+        for i in range(len(when_2_update)):
+            subdict[when_2_update[i]] = scheduled_value[i]
+        dict[key] = subdict
+    return dict
+
+
 def training_loop(agent, envs, args, device, actor_critic, 
     training_log=None, eval_log=None, eval_env=None):
     # each stage of the training loop gets thrown in this 
     rollouts = RolloutStorage(args.num_steps, args.num_processes,
                           envs.observation_space.shape, envs.action_space,
                           actor_critic.recurrent_hidden_state_size)
-
+    num_updates = int(
+        args.num_env_steps) // args.num_steps // args.num_processes # args.num_env_steps 1M for constant 4M for noisy (found in logs) # args.num_steps=2048 (found in logs) # args.num_processes=4=mini_batch (found in logs)
+    if args.birthx_linear_tc_steps:
+        birthx_specs = {"birthx":[(0.9, args.birthx), args.birthx_linear_tc_steps]}
+        schedule = build_tc_schedule_dict(birthx_specs, num_updates)
+        update_by_schedule(envs, schedule, 0)
+        
     obs = envs.reset()
     rollouts.obs[0].copy_(obs)
     rollouts.to(device)
@@ -323,15 +368,15 @@ def training_loop(agent, envs, args, device, actor_critic,
     eval_log = eval_log if eval_log is not None else []
 
     start = time.time()
-    num_updates = int(
-        args.num_env_steps) // args.num_steps // args.num_processes # args.num_env_steps 1M for constant 4M for noisy (found in logs) # args.num_steps=2048 (found in logs) # args.num_processes=4=mini_batch (found in logs)
     for j in range(num_updates):
-        # print(f"On update {j} of {num_updates}")
+        print(f"On update {j} of {num_updates}")
 
         if args.use_linear_lr_decay:
             # decrease learning rate linearly
             utils.update_linear_schedule(
                 agent.optimizer, j, num_updates, args.lr)
+        if args.birthx_linear_tc_steps:
+            update_by_schedule(envs, schedule, j)
 
         for step in range(args.num_steps):
             # Sample actions
@@ -544,8 +589,8 @@ def main():
     # Save args and config info
     # https://stackoverflow.com/questions/16878315/what-is-the-right-way-to-treat-argparse-namespace-as-a-dictionary
     fname = f"{args.save_dir}/{args.env_name}_{args.outsuffix}_args.json"
-    with open(fname, 'w') as fp:
-        json.dump(vars(args), fp)
+    # with open(fname, 'w') as fp:
+    #     json.dump(vars(args), fp)
 
 
     # Save model at START of training
@@ -572,7 +617,10 @@ def main():
             envs = make_vec_envs(args.env_name, args.seed, args.num_processes,
                          args.gamma, args.log_dir, device, False, args)
         training_log, eval_log = training_loop(agent, envs, args, device, actor_critic, 
-            training_log=training_log, eval_log=eval_log, eval_env=eval_env)        
+            training_log=training_log, eval_log=eval_log, eval_env=eval_env)  
+        
+        if not stage_idx: # store weights for the constant case where idx == 0
+            fname = f'{args.save_dir}/{args.env_name}_{args.outsuffix}_{args.dataset}.pt'
 
     # Save model at END of training
     fname = f'{args.save_dir}/{args.env_name}_{args.outsuffix}.pt'
@@ -615,7 +663,7 @@ def main():
     for ds in datasets:
       print(f"Evaluating on dataset: {ds}")
       args.dataset = ds
-      test_sparsity = True if 'constantx5b5' in args.dataset else False
+      test_sparsity = True # if 'constantx5b5' in args.dataset else False # always test sparsity
       test_sparsity = False if 'short' in args.eval_type else test_sparsity
       evalCli.eval_loop(args, actor_critic, test_sparsity=test_sparsity)
 

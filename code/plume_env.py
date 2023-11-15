@@ -44,8 +44,8 @@ class PlumeEnvironment(gym.Env):
     wind_rel=True, # Agent senses relative wind speed (not ground speed)
     auto_movex=False, # simple autocurricula for movex
     auto_reward=False, # simple autocurricula for reward decay
-    diff_max=0.8, # teacher curriculum
-    diff_min=0.4, # teacher curriculum
+    diff_max=0.8, # teacher curriculum; sets the quantile of init x location 
+    diff_min=0.4, # teacher curriculum; sets the quantile of init x location 
     r_shaping=['step', 'oob'], # 'step', 'end'
     rewardx=1.0, # scale reward for e.g. A3C
     rescale=False, # rescale/normalize input/outputs [redundant?]
@@ -199,6 +199,10 @@ class PlumeEnvironment(gym.Env):
         self.homed_radius = 0.02 # m i.e. 18cm walk from 0.20m (flying "homed" distance)
         self.stray_max = 0.05 # meters
         # self.rewards['tick'] = -1/self.episode_steps_max
+
+  def update_env_param(self, params):
+      for k,v in params.items():
+          setattr(self, k, v)
 
   def set_dataset(self, dataset):
     self.dataset = dataset
@@ -386,6 +390,7 @@ class PlumeEnvironment(gym.Env):
     """
     return Gym.Observation
     """
+    # print(f'reset() called; self.birthx = {self.birthx}', flush=True)
     self.episode_reward = 0
     self.episode_step = 0 # skip_steps already done during loading
     # Add randomness to start time PER TRIAL!
