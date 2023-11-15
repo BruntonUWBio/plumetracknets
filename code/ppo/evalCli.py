@@ -84,11 +84,11 @@ import os
 os.environ["OMP_NUM_THREADS"] = "1"
 os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"   # see issue #152
 os.environ["CUDA_VISIBLE_DEVICES"]=""
+import sys
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 import torch
 import argparse
-import os
-import sys
 import numpy as np
 import torch
 import pandas as pd
@@ -96,13 +96,9 @@ import pickle
 
 import matplotlib 
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt
 
 import numpy as np
 from pprint import pprint
-import glob
-import sys
-sys.path.append('/src/smartFlies/code/')
 try:
     from plume_env import PlumeEnvironment, PlumeFrameStackEnvironment
 except:
@@ -169,7 +165,7 @@ def evaluate_agent(actor_critic, env, args):
             grids.append(grid)
         # make a DF of starting locations for the agent
         grid = pd.concat(grids).to_numpy() # Stack
-        args.test_episodes = grid.shape[0]
+        args.test_episodes = grid.shape[0]  # TODO HACK test_episodes never used. Take this out or make functional.
         print(f"Using fixed evaluation sequence [time, angle, loc_y]... ({args.test_episodes} episodes) ")
 
 
@@ -364,8 +360,9 @@ def eval_loop(args, actor_critic, test_sparsity=True):
 
     #### ------- Sparse ------- #### 
     if test_sparsity:
-        for birthx in [0.8, 0.6, 0.4, 0.2, 0.1]:
-            print("Sparse/birthx:", birthx)
+        for birthx in np.arange(0.9, 0.05, -0.05):
+            birthx = round(birthx, 2)
+            # print("Sparse/birthx:", birthx)
             try:
                 args.birthx_max = birthx # load time birthx: subsample the plume data at the time of loading 
                 args.birthx = 1.0 # dynamic birthx: subsample by rand.unif.[birthx, 1] at the time of reset at each epoch, on top of the loaded birthx
