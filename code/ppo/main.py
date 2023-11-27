@@ -589,8 +589,8 @@ def main():
     # Save args and config info
     # https://stackoverflow.com/questions/16878315/what-is-the-right-way-to-treat-argparse-namespace-as-a-dictionary
     fname = f"{args.save_dir}/{args.env_name}_{args.outsuffix}_args.json"
-    # with open(fname, 'w') as fp:
-    #     json.dump(vars(args), fp)
+    with open(fname, 'w') as fp:
+        json.dump(vars(args), fp)
 
 
     # Save model at START of training
