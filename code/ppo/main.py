@@ -604,6 +604,7 @@ def main():
 
     # Curriculum hack
     num_stages = len(datasets)
+    fname = f'{args.save_dir}/{args.env_name}_{args.outsuffix}.pt'
     for stage_idx in range(num_stages):
         args.dataset = datasets[stage_idx] 
         args.birthx = birthxs[stage_idx] 
@@ -619,16 +620,13 @@ def main():
         training_log, eval_log = training_loop(agent, envs, args, device, actor_critic, 
             training_log=training_log, eval_log=eval_log, eval_env=eval_env)  
         
-        if not stage_idx: # store weights for the constant case where idx == 0
-            fname = f'{args.save_dir}/{args.env_name}_{args.outsuffix}_{args.dataset}.pt'
-
-    # Save model at END of training
-    fname = f'{args.save_dir}/{args.env_name}_{args.outsuffix}.pt'
-    torch.save([
-        actor_critic,
-        getattr(utils.get_vec_normalize(envs), 'ob_rms', None)
-    ], fname)
-    print('Saved', fname)
+        # Save model after each stage of training
+        fname = fname.replace('.pt', f'.{args.dataset}.pt')
+        torch.save([
+            actor_critic,
+            getattr(utils.get_vec_normalize(envs), 'ob_rms', None)
+        ], fname)
+        print('Saved', fname)
     
 
     #### -------------- Done training - now Evaluate -------------- ####
