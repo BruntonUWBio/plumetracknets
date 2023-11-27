@@ -401,11 +401,25 @@ def training_loop(agent, envs, args, device, actor_critic,
 
 def main():
     args = get_args()
+    # TODO ask about seed for continuing training...
+    # initializing random seed with the prev. value will repeat the sequence... Influence unknown. # goal would be to reproduce, so just doc the new seed...
+    
     if args.agent:
-        # get seed from fname
+    #     # get seed from fname
+    #     # forgot to save json file so have to parse... ugh
+    #     log_p = args.agent.replace('.pt','.log').replace('plume_','')
+    #     log_p = log_p.split('plume_')[1] + '.log'
+    #     with open(log_p, "r") as file:
+    #         lines = file.readlines()
+    #         first_10_lines = lines[:10]
+
+    #     print(first_10_lines)
+        # update outprefix 
         
+        args.outsuffix = os.path.basename(args.agent).replace('.pt','continued')
+        print("[Continuing prev training] Continuing training with outprefix", args.outsuffix)
         # update args seed
-        
+    
         
     print("PPO Args --->", args)
 
@@ -474,7 +488,9 @@ def main():
         args=args,
         allow_early_resets=True)
     if args.agent:
-        actor_critic, ob_rms = torch.load(args.model_fname, map_location=torch.device(args.device))
+        # TODO add saving optimizer state as well 
+        print("[Continuing prev training] Loading agent from", args.agent)
+        actor_critic, ob_rms = torch.load(args.model_fname, map_location=torch.device(device))
     else:
         actor_critic = Policy(
             envs.observation_space.shape,
