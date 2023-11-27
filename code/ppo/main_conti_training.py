@@ -401,6 +401,12 @@ def training_loop(agent, envs, args, device, actor_critic,
 
 def main():
     args = get_args()
+    if args.agent:
+        # get seed from fname
+        
+        # update args seed
+        
+        
     print("PPO Args --->", args)
 
     np.random.seed(args.seed)
@@ -467,16 +473,25 @@ def main():
         device=device,
         args=args,
         allow_early_resets=True)
-
-    actor_critic = Policy(
-        envs.observation_space.shape,
-        envs.action_space,
-        base_kwargs={
-                     'recurrent': args.recurrent_policy,
-                     'rnn_type': args.rnn_type,
-                     'hidden_size': args.hidden_size,
-                     },
-        args=args)
+    if args.agent:
+        actor_critic, ob_rms = torch.load(args.model_fname, map_location=torch.device(args.device))
+    else:
+        actor_critic = Policy(
+            envs.observation_space.shape,
+            envs.action_space,
+            base_kwargs={
+                        'recurrent': args.recurrent_policy,
+                        'rnn_type': args.rnn_type,
+                        'hidden_size': args.hidden_size,
+                        },
+            args=args)
+        # Save model at START of training
+        fname = f'{args.save_dir}/{args.env_name}_{args.outsuffix}.pt.start'
+        torch.save([
+            actor_critic,
+            getattr(utils.get_vec_normalize(envs), 'ob_rms', None)  
+        ], fname)
+        print('Saved', fname)
     actor_critic.to(device)
 
     agent = PPO(
@@ -494,19 +509,9 @@ def main():
     # Save args and config info
     # https://stackoverflow.com/questions/16878315/what-is-the-right-way-to-treat-argparse-namespace-as-a-dictionary
     fname = f"{args.save_dir}/{args.env_name}_{args.outsuffix}_args.json"
-    # with open(fname, 'w') as fp:
-    #     json.dump(vars(args), fp)
-
-
-    # Save model at START of training
-    fname = f'{args.save_dir}/{args.env_name}_{args.outsuffix}.pt.start'
-    torch.save([
-        actor_critic,
-        getattr(utils.get_vec_normalize(envs), 'ob_rms', None)
-    ], fname)
-    print('Saved', fname)
-
-
+    with open(fname, 'w') as fp:
+        json.dump(vars(args), fp)
+    
     # Curriculum hack
     num_stages = len(datasets)
     for stage_idx in range(num_stages):
