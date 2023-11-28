@@ -177,9 +177,12 @@ def evaluate_agent(actor_critic, env, args):
             venv.fixed_x = grid[i_episode, 2] # meters
             venv.fixed_time_offset = grid[i_episode, 3] # seconds
 
+        # recurrent_hidden_states = torch.zeros(1, 
+                    # actor_critic.recurrent_hidden_state_size, device='cpu')
         recurrent_hidden_states = torch.zeros(1, 
-                    actor_critic.recurrent_hidden_state_size, device='cpu')
-        masks = torch.zeros(1, 1, device='cpu')
+                    actor_critic.recurrent_hidden_state_size, device=args.device)
+        # masks = torch.zeros(1, 1, device='cpu')
+        masks = torch.zeros(1, 1, device=args.device)
         obs = env.reset()
 
         reward_sum = 0    
@@ -292,7 +295,8 @@ def eval_loop(args, actor_critic, test_sparsity=True):
             num_processes=1,
             gamma=0.99, # redundant
             log_dir=None, # redundant
-            device='cpu',
+            # device='cpu',
+            device=args.device,
             args=args,
             allow_early_resets=False)
 
@@ -376,7 +380,8 @@ def eval_loop(args, actor_critic, test_sparsity=True):
                     num_processes=1,   
                     gamma=0.99, # redundant
                     log_dir=None, # redundant
-                    device='cpu',
+                    # device='cpu',
+                    device=args.device,
                     args=args,
                     allow_early_resets=False)
 
@@ -503,6 +508,7 @@ if __name__ == "__main__":
     args.stacking = 0
     if 'MLP' in args.model_fname:
         args.stacking = int( args.model_fname.split('MLP_s')[-1].split('_')[0] )
-
-    actor_critic, ob_rms = torch.load(args.model_fname, map_location=torch.device('cpu'))
+    args.device = torch.device(f"cuda:0")
+    # actor_critic, ob_rms = torch.load(args.model_fname, map_location=torch.device('cpu'))
+    actor_critic, ob_rms = torch.load(args.model_fname, map_location=torch.device(args.device))
     eval_loop(args, actor_critic, test_sparsity=args.test_sparsity)

@@ -417,6 +417,7 @@ def main():
         # update outprefix 
         
         args.outsuffix = os.path.basename(args.agent).replace('.pt','continued')
+        args.save_dir = os.path.dirname(args.agent)
         print("[Continuing prev training] Continuing training with outprefix", args.outsuffix)
         # update args seed
     
