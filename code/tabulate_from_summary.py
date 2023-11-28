@@ -37,17 +37,30 @@ def parse_summary_files(fnames, BASE_DIR):
     return counts_df
 
 def main(args):
-    files = glob.glob(f"{args.base_dir}/**/*_summary.csv", recursive=True)
-    print(f"Reading directory {args.base_dir}, {len(files)} files found")
+    if args.subdir_prefix:
+        files = glob.glob(f"{args.base_dir}/**/{args.subdir_prefix}*/**/*_summary.csv", recursive=True)
+        # files = [f for f in files if f.split('/')[1].startswith(args.subdir_suffix)]
+        print(f"Reading directory {args.base_dir}/**/{args.subdir_prefix}*/**, {len(files)} files found")
+    else:
+        files = glob.glob(f"{args.base_dir}/**/*_summary.csv", recursive=True)
+        print(f"Reading directory {args.base_dir}, {len(files)} files found")
+    
+    assert len(files) > 0, "No files found, check the directory"
     summary_dfs = parse_summary_files(files, args.base_dir)
 
     current_date = datetime.date.today()
 
-    summary_dfs.to_csv(f'{args.base_dir}/performance_all_{current_date}.tsv', sep='\t', index=False)
+    if args.out_prefix:
+        summary_dfs.to_csv(f'{args.base_dir}/{args.out_prefix}.tsv', sep='\t', index=False)
+    else:
+        summary_dfs.to_csv(f'{args.base_dir}/performance_all_{current_date}.tsv', sep='\t', index=False)
     print(f"Saved to {args.base_dir}/performance_all_{current_date}.tsv")
     
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='')
-    parser.add_argument('--base_dir', default=os.getcwd(), help='Base directory of the experiment')
+    parser.add_argument('--base_dir', default=os.getcwd(), type=str, help='Base directory of the experiment')
+    parser.add_argument('--subdir_prefix', default='', type=str, help='Find subdirs that startwith the suffix')
+    parser.add_argument('--out_prefix', default='', type=str, help='Output file prefix')
+    
     args = parser.parse_args()
     main(args)
