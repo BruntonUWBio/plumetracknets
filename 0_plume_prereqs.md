@@ -5,7 +5,7 @@
 
 * Git clone this repository
 
-* If you'd like, set up and activate a [virtual environment](https://docs.python.org/3/tutorial/venv.html). For example:
+* (**See conda py39 note below**) If you'd like, set up and activate a [virtual environment](https://docs.python.org/3/tutorial/venv.html). For example:
 ```bash
 python -m venv /path/to/myvenv
 source /path/to/myvenv/bin/activate
@@ -22,10 +22,31 @@ source /path/to/myvenv/bin/activate
 To begin, please install these and all their required packages
 
 
-* Install other requirements (with venv activated)
+**Dec 2023 Addendum:** Lots of dependency changes since the time of release of our code necessitates that you use a conda Python 3.9 environment like below
 ```bash
-pip3 install -m requirements.txt
-``` 
+# https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-python.html
+conda create -n py39 python=3.9
+conda activate py39
+
+conda install ffmpeg
+
+# https://pypi.org/project/mpi4py/
+conda install -c conda-forge mpi4py openmpi 
+
+# Install gym==0.21.0, manually if needed
+pip install gym==0.21.0 # likely to fail, if so, use below
+# git clone https://github.com/openai/gym.git
+# cd gym
+# git checkout v0.21.0
+# https://github.com/openai/gym/issues/3202
+pip install git+https://github.com/openai/gym.git@9180d12e1b66e7e2a1a622614f787a6ec147ac40 
+
+
+pip install -r requirements.txt
+
+git clone https://github.com/ikostrikov/pytorch-a2c-ppo-acktr-gail.git
+python pytorch-a2c-ppo-acktr-gail/main.py --algo ppo --env-name "Pendulum-v1"
+```
 
 ### Data
 
